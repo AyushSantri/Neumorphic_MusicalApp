@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:musical_app/screen/auth/login.dart';
+import 'package:musical_app/screen/auth/authscreen.dart';
 import 'package:musical_app/screen/home.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Login(),
+        home: AuthScreen(),
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primaryColor: Colors.black,

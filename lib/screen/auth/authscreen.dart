@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/screen/home.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class AuthScreen extends StatefulWidget {
+  const AuthScreen({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<AuthScreen> createState() => _AuthScreenState();
 }
 
-class _LoginState extends State<Login> {
+class _AuthScreenState extends State<AuthScreen> {
   final _formkey = GlobalKey<FormState>();
   var _email = ' ';
   var _password = ' ';
