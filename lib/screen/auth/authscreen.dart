@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/screen/home.dart';
@@ -14,7 +16,7 @@ class _AuthScreenState extends State<AuthScreen> {
   var _email = ' ';
   var _password = ' ';
   var _username = ' ';
-  bool isLoginPage = true;
+  bool isLoginPage = false;
 
   BoxDecoration Decoration() {
     return const BoxDecoration(
@@ -39,8 +41,29 @@ class _AuthScreenState extends State<AuthScreen> {
 
     if (validity == true) {
       _formkey.currentState!.save();
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const Home()));
+      submitForm(_username, _email, _password);
+    }
+  }
+
+  submitForm(String username, String email, String password) async {
+    final auth = FirebaseAuth.instance;
+    UserCredential userCredential;
+
+    try {
+      if (isLoginPage) {
+        userCredential = await auth.signInWithEmailAndPassword(
+            email: email, password: password);
+      } else {
+        userCredential = await auth.createUserWithEmailAndPassword(
+            email: email, password: password);
+        String uid = userCredential.user!.uid;
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(uid)
+            .set({'username': username, 'email': email});
+      }
+    } catch (err) {
+      print(err);
     }
   }
 
@@ -51,7 +74,7 @@ class _AuthScreenState extends State<AuthScreen> {
         body: Center(
           child: Container(
             width: MediaQuery.of(context).size.width / 1.3,
-            height: isLoginPage
+            height: isLoginPage == false
                 ? MediaQuery.of(context).size.height / 1.7
                 : MediaQuery.of(context).size.height / 2,
             decoration: Decoration(),
@@ -60,7 +83,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                isLoginPage
+                isLoginPage == true
                     ? Text(
                         'Login',
                         style: GoogleFonts.montserrat(
@@ -77,7 +100,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 Form(
                   key: _formkey,
                   child: Column(children: [
-                    if (isLoginPage)
+                    if (!isLoginPage)
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2,
                         child: TextFormField(
