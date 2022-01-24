@@ -74,95 +74,113 @@ class _AuthScreenState extends State<AuthScreen> {
                   height: 15,
                 ),
                 Form(
-                    key: _formkey,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 2,
-                          child: TextFormField(
-                            keyboardType: TextInputType.emailAddress,
-                            key: const ValueKey('email'),
-                            style: const TextStyle(color: Colors.grey),
-                            decoration: InputDecoration(
-                                labelText: "email",
-                                labelStyle: GoogleFonts.montserrat()),
-                            validator: (value) {
-                              if (value?.isEmpty == true ||
-                                  value?.contains('@') == false) {
-                                return "Incorrect email";
-                              }
-                              return null;
-                            },
-                            onSaved: (value) {
-                              _email = value!;
-                            },
+                  key: _formkey,
+                  child: Column(children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2,
+                      child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        key: const ValueKey('email'),
+                        style: const TextStyle(color: Colors.grey),
+                        decoration: InputDecoration(
+                            labelText: "email",
+                            labelStyle: GoogleFonts.montserrat()),
+                        validator: (value) {
+                          if (value?.isEmpty == true ||
+                              value?.contains('@') == false) {
+                            return "Incorrect email";
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _email = value!;
+                        },
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2,
+                      child: TextFormField(
+                        keyboardType: TextInputType.visiblePassword,
+                        key: const ValueKey('password'),
+                        style: const TextStyle(color: Colors.grey),
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          labelText: "password",
+                          labelStyle: GoogleFonts.montserrat(),
+                        ),
+                        validator: (value) {
+                          if (value?.isEmpty == true) {
+                            return "generate strong password";
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _password = value!;
+                        },
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        print("hii");
+                        setState(() {
+                          startAuthentication();
+                        });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        width: MediaQuery.of(context).size.width / 1.9,
+                        height: 53,
+                        decoration: const BoxDecoration(
+                            color: Color.fromRGBO(238, 238, 238, 1),
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.white54,
+                                  offset: Offset(-2.0, 4.0),
+                                  blurRadius: 1.0,
+                                  spreadRadius: 1.0),
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  offset: Offset(4.0, -2.0),
+                                  blurRadius: 1.0,
+                                  spreadRadius: 2.0)
+                            ]),
+                        child: Center(
+                          child: Text(
+                            'Login',
+                            style: GoogleFonts.montserrat(
+                                color: Colors.black54, fontSize: 22),
                           ),
                         ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 2,
-                          child: TextFormField(
-                            keyboardType: TextInputType.visiblePassword,
-                            key: const ValueKey('password'),
-                            style: const TextStyle(color: Colors.grey),
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              labelText: "password",
-                              labelStyle: GoogleFonts.montserrat(),
-                            ),
-                            validator: (value) {
-                              if (value?.isEmpty == true) {
-                                return "generate strong password";
-                              }
-                              return null;
-                            },
-                            onSaved: (value) {
-                              _password = value!;
-                            },
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            print("hii");
-                            setState(() {
-                              startAuthentication();
-                            });
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.all(5),
-                            width: MediaQuery.of(context).size.width / 1.9,
-                            height: 53,
-                            decoration: const BoxDecoration(
-                                color: Color.fromRGBO(238, 238, 238, 1),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30)),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.white54,
-                                      offset: Offset(-2.0, 4.0),
-                                      blurRadius: 1.0,
-                                      spreadRadius: 1.0),
-                                  BoxShadow(
-                                      color: Colors.black12,
-                                      offset: Offset(4.0, -2.0),
-                                      blurRadius: 1.0,
-                                      spreadRadius: 2.0)
-                                ]),
-                            child: Center(
-                                child: Text(
-                              'Login',
-                              style: GoogleFonts.montserrat(
-                                  color: Colors.black54, fontSize: 22),
-                            )),
-                          ),
-                        )
-                      ],
-                    ))
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      'Not a member?',
+                      style: GoogleFonts.montserrat(
+                          color: Colors.black54, fontSize: 18),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        isLoginPage = !isLoginPage;
+                        setState(() {});
+                      },
+                      child: Text(
+                        'SignUp',
+                        style: GoogleFonts.montserrat(
+                            color: Colors.black54, fontSize: 18),
+                      ),
+                    )
+                  ]),
+                )
               ],
             ),
           ),
