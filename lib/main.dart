@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:musical_app/screen/auth/authscreen.dart';
@@ -15,7 +16,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: AuthScreen(),
+        home: StreamBuilder(
+          stream: FirebaseAuth.instance.userChanges(),
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+            if (snapshot.hasData) {
+              return const Home();
+            } else {
+              return const AuthScreen();
+            }
+          },
+        ),
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primaryColor: Colors.black,
