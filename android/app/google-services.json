@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:446214435201:android:e86f82c186a8cbcdc4f880",
         "android_client_info": {
-          "package_name": "com.android.application"
+          "package_name": "com.example.musical_app"
         }
       },
       "oauth_client": [
