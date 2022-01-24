@@ -38,7 +38,6 @@ class _AuthScreenState extends State<AuthScreen> {
     final validity = _formkey.currentState?.validate();
 
     if (validity == true) {
-      print('fdisbfi');
       _formkey.currentState!.save();
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const Home()));
@@ -95,7 +94,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             return null;
                           },
                           onSaved: (value) {
-                            _email = value!;
+                            _username = value!;
                           },
                         ),
                       ),
