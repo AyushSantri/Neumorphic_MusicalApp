@@ -52,7 +52,9 @@ class _AuthScreenState extends State<AuthScreen> {
         body: Center(
           child: Container(
             width: MediaQuery.of(context).size.width / 1.3,
-            height: MediaQuery.of(context).size.height / 2,
+            height: isLoginPage
+                ? MediaQuery.of(context).size.height / 1.7
+                : MediaQuery.of(context).size.height / 2,
             decoration: Decoration(),
             child: Column(
               children: [
@@ -76,6 +78,27 @@ class _AuthScreenState extends State<AuthScreen> {
                 Form(
                   key: _formkey,
                   child: Column(children: [
+                    if (isLoginPage)
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: TextFormField(
+                          keyboardType: TextInputType.name,
+                          key: const ValueKey('username'),
+                          style: const TextStyle(color: Colors.grey),
+                          decoration: InputDecoration(
+                              labelText: "username",
+                              labelStyle: GoogleFonts.montserrat()),
+                          validator: (value) {
+                            if (value?.isEmpty == true) {
+                              return "Incorrect name";
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _email = value!;
+                          },
+                        ),
+                      ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2,
                       child: TextFormField(
@@ -127,7 +150,6 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        print("hii");
                         setState(() {
                           startAuthentication();
                         });
@@ -153,18 +175,18 @@ class _AuthScreenState extends State<AuthScreen> {
                             ]),
                         child: Center(
                           child: Text(
-                            'Login',
+                            isLoginPage ? 'Login' : 'SignUp',
                             style: GoogleFonts.montserrat(
                                 color: Colors.black54, fontSize: 22),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Text(
-                      'Not a member?',
+                      isLoginPage ? 'Not a member?' : 'Already a member?',
                       style: GoogleFonts.montserrat(
                           color: Colors.black54, fontSize: 18),
                     ),
@@ -174,7 +196,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         setState(() {});
                       },
                       child: Text(
-                        'SignUp',
+                        isLoginPage ? 'SignUp' : 'Login',
                         style: GoogleFonts.montserrat(
                             color: Colors.black54, fontSize: 18),
                       ),
