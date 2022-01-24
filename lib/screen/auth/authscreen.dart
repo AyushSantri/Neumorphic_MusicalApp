@@ -26,13 +26,13 @@ class _AuthScreenState extends State<AuthScreen> {
           BoxShadow(
               color: Colors.white60,
               offset: Offset(-10.0, -10.0),
-              blurRadius: 3.0,
-              spreadRadius: -1.0),
+              blurRadius: 4.0,
+              spreadRadius: -2.0),
           BoxShadow(
               color: Colors.black12,
               offset: Offset(10.0, 10.0),
               blurRadius: 5.0,
-              spreadRadius: 3.0)
+              spreadRadius: 0.0)
         ]);
   }
 
@@ -67,6 +67,13 @@ class _AuthScreenState extends State<AuthScreen> {
     }
   }
 
+  styleForText(double size, String title) {
+    return Text(
+      title,
+      style: GoogleFonts.montserrat(fontSize: size, color: Colors.black54),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,22 +91,15 @@ class _AuthScreenState extends State<AuthScreen> {
                   height: 15,
                 ),
                 isLoginPage == true
-                    ? Text(
-                        'Login',
-                        style: GoogleFonts.montserrat(
-                            fontSize: 33, color: Colors.black54),
-                      )
-                    : Text(
-                        'SignUp',
-                        style: GoogleFonts.montserrat(
-                            fontSize: 33, color: Colors.black54),
-                      ),
+                    ? styleForText(33, 'Login')
+                    : styleForText(33, 'SignUp'),
                 const SizedBox(
                   height: 15,
                 ),
                 Form(
                   key: _formkey,
                   child: Column(children: [
+/*========================================First Form Field===============================================================*/
                     if (!isLoginPage)
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2,
@@ -121,6 +121,10 @@ class _AuthScreenState extends State<AuthScreen> {
                           },
                         ),
                       ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    /*===========================================Second Form Field================================================================*/
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2,
                       child: TextFormField(
@@ -143,8 +147,9 @@ class _AuthScreenState extends State<AuthScreen> {
                       ),
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 8,
                     ),
+                    /*==================================third form field=================================================*/
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2,
                       child: TextFormField(
@@ -170,6 +175,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     const SizedBox(
                       height: 30,
                     ),
+                    /*====================================Button to Submit form========================================*/
                     InkWell(
                       onTap: () {
                         setState(() {
@@ -196,33 +202,25 @@ class _AuthScreenState extends State<AuthScreen> {
                                   spreadRadius: 1.0)
                             ]),
                         child: Center(
-                          child: Text(
-                            isLoginPage ? 'Login' : 'SignUp',
-                            style: GoogleFonts.montserrat(
-                                color: Colors.black54, fontSize: 22),
-                          ),
+                          child: styleForText(
+                              22, isLoginPage ? 'Login' : 'SignUp'),
                         ),
                       ),
                     ),
                     const SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      isLoginPage ? 'Not a member?' : 'Already a member?',
-                      style: GoogleFonts.montserrat(
-                          color: Colors.black54, fontSize: 18),
-                    ),
+                    /*==================================*/
+                    styleForText(18,
+                        isLoginPage ? 'Not a member?' : 'Already a member?'),
+                    /*====================Button to check if user want to l0gin or signup==========================*/
                     TextButton(
                       onPressed: () {
                         isLoginPage = !isLoginPage;
                         setState(() {});
                       },
-                      child: Text(
-                        isLoginPage ? 'SignUp' : 'Login',
-                        style: GoogleFonts.montserrat(
-                            color: Colors.black54, fontSize: 18),
-                      ),
-                    )
+                      child: styleForText(18, isLoginPage ? 'SignUp' : 'Login'),
+                    ),
                   ]),
                 )
               ],
