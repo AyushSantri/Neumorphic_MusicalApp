@@ -29,9 +29,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Color.fromRGBO(227, 225, 225, 1),
-      appBar: appBarForHome(),
+      body: ,
     );
   }
 }
