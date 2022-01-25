@@ -20,19 +20,19 @@ class _AuthScreenState extends State<AuthScreen> {
 
   BoxDecoration Decoration() {
     return const BoxDecoration(
-        color: Color.fromRGBO(227, 225, 225, 1),
+        color: Color.fromRGBO(227, 225, 225, 0.7),
         borderRadius: BorderRadius.all(Radius.circular(30)),
         boxShadow: [
           BoxShadow(
               color: Colors.white60,
               offset: Offset(-10.0, -10.0),
-              blurRadius: 4.0,
-              spreadRadius: -2.0),
+              blurRadius: 5.0,
+              spreadRadius: -1.0),
           BoxShadow(
               color: Colors.black12,
               offset: Offset(10.0, 10.0),
-              blurRadius: 5.0,
-              spreadRadius: 0.0)
+              blurRadius: 10.0,
+              spreadRadius: 3.0)
         ]);
   }
 
@@ -187,13 +187,13 @@ class _AuthScreenState extends State<AuthScreen> {
                         width: MediaQuery.of(context).size.width / 1.9,
                         height: 53,
                         decoration: const BoxDecoration(
-                            color: Color.fromRGBO(227, 225, 225, 1),
+                            color: Color.fromRGBO(227, 225, 225, 0.7),
                             borderRadius: BorderRadius.all(Radius.circular(30)),
                             boxShadow: [
                               BoxShadow(
                                   color: Colors.white54,
-                                  offset: Offset(-2.0, -4.0),
-                                  blurRadius: 2.0,
+                                  offset: Offset(-3.0, -4.0),
+                                  blurRadius: 4.0,
                                   spreadRadius: 1.0),
                               BoxShadow(
                                   color: Colors.black12,
