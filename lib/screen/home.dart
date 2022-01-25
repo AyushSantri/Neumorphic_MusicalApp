@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:musical_app/screen/appbarforhome.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -29,8 +30,8 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(227, 225, 225, 1),
-      appBar: ,
+      backgroundColor: Color.fromRGBO(227, 225, 225, 1),
+      appBar: appBarForHome(),
     );
   }
 }
