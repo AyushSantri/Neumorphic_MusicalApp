@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class appBar extends StatefulWidget {
-  const appBar({Key? key}) : super(key: key);
+class appBarForHome extends StatefulWidget {
+  const appBarForHome({Key? key}) : super(key: key);
 
   @override
-  _appBarState createState() => _appBarState();
+  _appBarForHomeState createState() => _appBarForHomeState();
 }
 
-class _appBarState extends State<appBar> {
+class _appBarForHomeState extends State<appBarForHome> {
   BoxDecoration decorationForNeumorphic() {
     return BoxDecoration(
         color: const Color.fromRGBO(227, 225, 225, 0.6),
