@@ -31,7 +31,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Color.fromRGBO(227, 225, 225, 1),
-      body: ,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: appBarForHome(),
+      ),
     );
   }
 }
