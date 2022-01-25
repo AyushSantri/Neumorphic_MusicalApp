@@ -10,27 +10,28 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   BoxDecoration decorationForNeumorphic() {
-    return const BoxDecoration(
-        color: Color.fromRGBO(227, 225, 225, 1),
-        borderRadius: BorderRadius.all(Radius.circular(30)),
-        boxShadow: [
+    return BoxDecoration(
+        color: const Color.fromRGBO(204, 208, 215, 1),
+        borderRadius: BorderRadius.circular(25),
+        boxShadow: const [
           BoxShadow(
-              color: Colors.white60,
-              offset: Offset(-10.0, -10.0),
-              blurRadius: 4.0,
-              spreadRadius: -2.0),
+              color: Colors.white,
+              offset: Offset(-4.0, -3.0),
+              blurRadius: 2.0,
+              spreadRadius: 0.0),
           BoxShadow(
               color: Colors.black12,
-              offset: Offset(10.0, 10.0),
-              blurRadius: 5.0,
+              offset: Offset(3.0, 3.0),
+              blurRadius: 2.0,
               spreadRadius: 0.0)
         ]);
   }
 
+  bool _neumorphic = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(227, 225, 225, 1),
+      backgroundColor: const Color.fromRGBO(204, 208, 215, 1),
       appBar: AppBar(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
@@ -38,15 +39,18 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: const Color.fromRGBO(227, 225, 225, 1),
-                ),
+                height: 50,
+                width: 50,
+                decoration: decorationForNeumorphic(),
                 child: IconButton(
-                    splashRadius: 30,
-                    onPressed: () {},
+                    splashRadius: 20,
+                    onPressed: () {
+                      setState(() {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text("Searching not supported yet")));
+                      });
+                    },
                     icon: const Icon(
                       Icons.search,
                       color: Colors.black54,
