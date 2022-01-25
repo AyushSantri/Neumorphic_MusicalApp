@@ -21,6 +21,13 @@ class Home extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: const Color.fromRGBO(227, 225, 225, 1),
                 ),
+                child: IconButton(
+                    splashRadius: 30,
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.search,
+                      color: Colors.black54,
+                    )),
               ),
               const Text("Home"),
               ElevatedButton(
