@@ -5,6 +5,10 @@ class PlaylistContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      height: MediaQuery.of(context).size.height / 3,
+      width: 80,
+      decoration: BoxDecoration(color: Colors.grey),
+    );
   }
 }
