@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
     return const Scaffold(
       backgroundColor: Color.fromRGBO(227, 225, 225, 1),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: Size.fromHeight(50),
         child: appBarForHome(),
       ),
     );
