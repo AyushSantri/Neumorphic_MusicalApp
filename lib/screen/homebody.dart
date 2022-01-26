@@ -5,8 +5,8 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.grey),
+    return Column(
+      children: [],
     );
   }
 }
