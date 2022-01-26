@@ -12,7 +12,7 @@ class _appBarForHomeState extends State<appBarForHome> {
   BoxDecoration decorationForNeumorphic() {
     return BoxDecoration(
         color: const Color.fromRGBO(227, 225, 225, 0.6),
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: const [
           BoxShadow(
               color: Colors.white,
@@ -38,15 +38,15 @@ class _appBarForHomeState extends State<appBarForHome> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           AnimatedContainer(
-            duration: const Duration(seconds: 2),
+            duration: const Duration(milliseconds: 600),
             curve: Curves.easeInSine,
-            height: 50,
-            width: 50,
+            height: 40,
+            width: 40,
             decoration: animate
                 ? decorationForNeumorphic()
                 : BoxDecoration(
                     color: const Color.fromRGBO(227, 225, 225, 0.6),
-                    borderRadius: BorderRadius.circular(25),
+                    borderRadius: BorderRadius.circular(20),
                   ),
             child: IconButton(
                 splashRadius: 20,
@@ -63,8 +63,8 @@ class _appBarForHomeState extends State<appBarForHome> {
                 )),
           ),
           Container(
-            height: 50,
-            width: 50,
+            height: 40,
+            width: 40,
             decoration: decorationForNeumorphic(),
             child: IconButton(
                 splashRadius: 20,
