@@ -6,6 +6,16 @@ class PlaylistContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Neumorphic(
+      style: NeumorphicStyle(
+          shape: NeumorphicShape.flat,
+          boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+          depth: -4,
+          color: Colors.grey[300]),
+      child: Container(
+        height: 100,
+        width: 100,
+      ),
+    );
   }
 }
