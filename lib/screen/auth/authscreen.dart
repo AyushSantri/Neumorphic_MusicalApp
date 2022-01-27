@@ -19,20 +19,20 @@ class _AuthScreenState extends State<AuthScreen> {
   bool isLoginPage = false;
 
   BoxDecoration Decoration() {
-    return const BoxDecoration(
-        color: Color.fromRGBO(227, 225, 225, 0.7),
-        borderRadius: BorderRadius.all(Radius.circular(30)),
+    return BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: const BorderRadius.all(Radius.circular(30)),
         boxShadow: [
+          const BoxShadow(
+              color: Colors.white,
+              offset: Offset(-4.0, -4.0),
+              blurRadius: 15.0,
+              spreadRadius: 1.0),
           BoxShadow(
-              color: Colors.white60,
-              offset: Offset(-10.0, -10.0),
-              blurRadius: 5.0,
-              spreadRadius: -1.0),
-          BoxShadow(
-              color: Colors.black12,
-              offset: Offset(10.0, 10.0),
-              blurRadius: 10.0,
-              spreadRadius: 3.0)
+              color: Colors.grey[400]!,
+              offset: const Offset(4.0, 4.0),
+              blurRadius: 15.0,
+              spreadRadius: 1.0)
         ]);
   }
 
@@ -77,7 +77,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(227, 225, 225, 1),
+        backgroundColor: Colors.grey[300],
         body: Center(
           child: Container(
             width: MediaQuery.of(context).size.width / 1.3,
@@ -186,19 +186,19 @@ class _AuthScreenState extends State<AuthScreen> {
                         padding: const EdgeInsets.all(5),
                         width: MediaQuery.of(context).size.width / 1.9,
                         height: 53,
-                        decoration: const BoxDecoration(
-                            color: Color.fromRGBO(227, 225, 225, 0.7),
+                        decoration: BoxDecoration(
+                            color: Colors.grey[300],
                             borderRadius: BorderRadius.all(Radius.circular(30)),
                             boxShadow: [
                               BoxShadow(
-                                  color: Colors.white54,
-                                  offset: Offset(-3.0, -4.0),
-                                  blurRadius: 4.0,
+                                  color: Colors.white,
+                                  offset: Offset(-4.0, -4.0),
+                                  blurRadius: 15.0,
                                   spreadRadius: 1.0),
                               BoxShadow(
-                                  color: Colors.black12,
-                                  offset: Offset(4.0, 2.0),
-                                  blurRadius: 1.0,
+                                  color: Colors.grey[400]!,
+                                  offset: Offset(4.0, 4.0),
+                                  blurRadius: 15.0,
                                   spreadRadius: 1.0)
                             ]),
                         child: Center(
