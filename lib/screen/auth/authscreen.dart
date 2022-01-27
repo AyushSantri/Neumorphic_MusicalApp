@@ -26,13 +26,13 @@ class _AuthScreenState extends State<AuthScreen> {
           const BoxShadow(
               color: Colors.white,
               offset: Offset(-4.0, -4.0),
-              blurRadius: 15.0,
-              spreadRadius: 1.0),
+              blurRadius: 5.0,
+              spreadRadius: 3.0),
           BoxShadow(
               color: Colors.grey[400]!,
               offset: const Offset(4.0, 4.0),
-              blurRadius: 15.0,
-              spreadRadius: 1.0)
+              blurRadius: 5.0,
+              spreadRadius: 3.0)
         ]);
   }
 
@@ -193,13 +193,13 @@ class _AuthScreenState extends State<AuthScreen> {
                               BoxShadow(
                                   color: Colors.white,
                                   offset: Offset(-4.0, -4.0),
-                                  blurRadius: 15.0,
-                                  spreadRadius: 1.0),
+                                  blurRadius: 5.0,
+                                  spreadRadius: 2.0),
                               BoxShadow(
                                   color: Colors.grey[400]!,
                                   offset: Offset(4.0, 4.0),
-                                  blurRadius: 15.0,
-                                  spreadRadius: 1.0)
+                                  blurRadius: 5.0,
+                                  spreadRadius: 2.0)
                             ]),
                         child: Center(
                           child: styleForText(
