@@ -10,33 +10,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  BoxDecoration decorationForNeumorphic() {
-    return BoxDecoration(
-        color: const Color.fromRGBO(227, 225, 225, 0.6),
-        borderRadius: BorderRadius.circular(25),
-        boxShadow: const [
-          BoxShadow(
-              color: Colors.white,
-              offset: Offset(-4.0, -3.0),
-              blurRadius: 3.0,
-              spreadRadius: 0.8),
-          BoxShadow(
-              color: Colors.black12,
-              offset: Offset(3.0, 3.0),
-              blurRadius: 3.0,
-              spreadRadius: 0.0)
-        ]);
-  }
-
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color.fromRGBO(227, 225, 225, 1),
-      appBar: PreferredSize(
+    return Scaffold(
+      backgroundColor: Colors.grey[300]!,
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50),
         child: appBarForHome(),
       ),
-      body: HomeBody(),
+      body: const HomeBody(),
     );
   }
 }
