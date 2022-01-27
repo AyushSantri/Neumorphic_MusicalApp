@@ -39,6 +39,7 @@ dependencies:
   cloud_firestore:
   firebase_core:
   fluttertoast:
+  flutter_neumorphic: ^3.2.0
 
 dev_dependencies:
   flutter_test:
