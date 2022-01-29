@@ -7,21 +7,21 @@ class PlaylistContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Neumorphic(
-        style: NeumorphicStyle(
+    return Neumorphic(
+      style: NeumorphicStyle(
           shape: NeumorphicShape.flat,
           boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
-          // border: NeumorphicBorder(
-          //     isEnabled: true, width: 40, color: Colors.grey[300]),
-          depth: 15,
-        ),
-        child: Container(
-          height: 100,
-          width: 100,
-          child: Image.network(
-              'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg'),
-        ),
+          border: const NeumorphicBorder(
+            color: Colors.white,
+            width: 8,
+          ),
+          depth: -15,
+          color: Colors.grey[200]),
+      child: Container(
+        height: 150,
+        width: 150,
+        // child: Image.network(
+        //     'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg'),
       ),
     );
   }
