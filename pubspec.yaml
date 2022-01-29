@@ -40,6 +40,7 @@ dependencies:
   firebase_core:
   fluttertoast:
   flutter_neumorphic: ^3.2.0
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:
