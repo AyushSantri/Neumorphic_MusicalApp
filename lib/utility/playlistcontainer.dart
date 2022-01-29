@@ -10,6 +10,7 @@ class PlaylistContainer extends StatefulWidget {
 }
 
 class _PlaylistContainerState extends State<PlaylistContainer> {
+  containers container = containers();
   @override
   Widget build(BuildContext context) {
     return containerPlaylist();
