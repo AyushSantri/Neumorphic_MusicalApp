@@ -10,6 +10,13 @@ class PlaylistContainer extends StatefulWidget {
 }
 
 class _PlaylistContainerState extends State<PlaylistContainer> {
+  @override
+  Widget build(BuildContext context) {
+    return containerPlaylist();
+  }
+}
+
+class containers {
   Neumorphic containerPlaylist() {
     return Neumorphic(
       style: NeumorphicStyle(
@@ -28,10 +35,5 @@ class _PlaylistContainerState extends State<PlaylistContainer> {
         //     'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg'),
       ),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return containerPlaylist();
   }
 }
