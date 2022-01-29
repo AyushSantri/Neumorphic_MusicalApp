@@ -2,10 +2,15 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class PlaylistContainer extends StatelessWidget {
+class PlaylistContainer extends StatefulWidget {
   const PlaylistContainer({Key? key}) : super(key: key);
 
-  containerPlaylist() {
+  @override
+  State<PlaylistContainer> createState() => _PlaylistContainerState();
+}
+
+class _PlaylistContainerState extends State<PlaylistContainer> {
+  Neumorphic containerPlaylist() {
     return Neumorphic(
       style: NeumorphicStyle(
           shape: NeumorphicShape.flat,
