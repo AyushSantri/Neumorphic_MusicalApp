@@ -5,8 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 class PlaylistContainer extends StatelessWidget {
   const PlaylistContainer({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
+  containerPlaylist() {
     return Neumorphic(
       style: NeumorphicStyle(
           shape: NeumorphicShape.flat,
@@ -24,5 +23,10 @@ class PlaylistContainer extends StatelessWidget {
         //     'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg'),
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return containerPlaylist();
   }
 }
