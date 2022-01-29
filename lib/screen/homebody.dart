@@ -7,13 +7,13 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 25, left: 20, right: 20),
-          width: MediaQuery.of(context).size.width,
-          child: Row(
+    return Container(
+      margin: const EdgeInsets.only(top: 25, left: 20, right: 20),
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
@@ -27,9 +27,12 @@ class HomeBody extends StatelessWidget {
               ),
             ],
           ),
-        ),
-        PlaylistContainer(),
-      ],
+          const SizedBox(
+            height: 25,
+          ),
+          const PlaylistContainer(),
+        ],
+      ),
     );
   }
 }
