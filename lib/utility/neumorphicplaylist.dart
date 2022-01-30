@@ -44,6 +44,5 @@ class NeumorphicPlaylist extends StatelessWidget {
         const Text('10 songs'),
       ],
     );
-    ;
   }
 }
