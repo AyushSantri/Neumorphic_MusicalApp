@@ -17,14 +17,22 @@ class _PlaylistContainerState extends State<PlaylistContainer> {
           scrollDirection: Axis.horizontal,
           itemCount: 4,
           itemBuilder: (context, int index) {
-            return ContainerForPlaylist().neumorphicContainer();
+            return NeumorphicPlaylist(
+              playlistName: 'Chill',
+            );
           }),
     );
   }
 }
 
-class ContainerForPlaylist {
-  neumorphicContainer() {
+class NeumorphicPlaylist extends StatelessWidget {
+  final String playlistName;
+
+  const NeumorphicPlaylist({Key? key, required this.playlistName})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
@@ -51,13 +59,14 @@ class ContainerForPlaylist {
         const SizedBox(
           height: 10,
         ),
-        const Text('Chillout'),
+        Text(playlistName),
         const SizedBox(
           height: 6,
         ),
         const Text('10 songs'),
       ],
     );
+    ;
   }
 }
 
