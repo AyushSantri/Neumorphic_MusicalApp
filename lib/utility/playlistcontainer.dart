@@ -10,6 +10,8 @@ class PlaylistContainer extends StatefulWidget {
 }
 
 class _PlaylistContainerState extends State<PlaylistContainer> {
+  List<Widget> playlists = [];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
