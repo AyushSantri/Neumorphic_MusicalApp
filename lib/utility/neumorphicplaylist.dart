@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NeumorphicPlaylist extends StatelessWidget {
   final String playlistName;
@@ -37,11 +38,17 @@ class NeumorphicPlaylist extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        Text(playlistName),
+        Text(
+          playlistName,
+          style: GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
+        ),
         const SizedBox(
           height: 6,
         ),
-        const Text('10 songs'),
+        Text(
+          '10 songs',
+          style: GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
+        ),
       ],
     );
   }
