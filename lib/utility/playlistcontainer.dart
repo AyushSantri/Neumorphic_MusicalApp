@@ -10,7 +10,10 @@ class PlaylistContainer extends StatefulWidget {
 }
 
 class _PlaylistContainerState extends State<PlaylistContainer> {
-  List<Widget> playlists = [];
+  static List<Widget> playlists = [
+    const NeumorphicPlaylist(playlistName: 'Chill'),
+    const NeumorphicPlaylist(playlistName: 'Hip-Hop')
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +21,9 @@ class _PlaylistContainerState extends State<PlaylistContainer> {
       height: 230,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 4,
+          itemCount: playlists.length,
           itemBuilder: (context, int index) {
-            return NeumorphicPlaylist(
-              playlistName: 'Chill',
-            );
+            return playlists[index];
           }),
     );
   }
