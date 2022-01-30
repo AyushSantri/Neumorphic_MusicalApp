@@ -23,7 +23,11 @@ class _PlaylistContainerState extends State<PlaylistContainer> {
           scrollDirection: Axis.horizontal,
           itemCount: playlists.length,
           itemBuilder: (context, int index) {
-            return playlists[index];
+            return InkWell(
+                onTap: () {
+                  print(index);
+                },
+                child: playlists[index]);
           }),
     );
   }
