@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class NeumorphicPlaylist extends StatelessWidget {
+class NeumorphicPlaylistContainer extends StatelessWidget {
   final String playlistName;
 
-  const NeumorphicPlaylist({Key? key, required this.playlistName})
+  const NeumorphicPlaylistContainer({Key? key, required this.playlistName})
       : super(key: key);
 
   @override

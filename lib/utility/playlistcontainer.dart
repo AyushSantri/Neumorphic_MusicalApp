@@ -11,8 +11,8 @@ class PlaylistContainer extends StatefulWidget {
 
 class _PlaylistContainerState extends State<PlaylistContainer> {
   static List<Widget> playlists = [
-    const NeumorphicPlaylist(playlistName: 'Chill'),
-    const NeumorphicPlaylist(playlistName: 'Hip-Hop')
+    const NeumorphicPlaylistContainer(playlistName: 'Chill'),
+    const NeumorphicPlaylistContainer(playlistName: 'Hip-Hop')
   ];
 
   @override
