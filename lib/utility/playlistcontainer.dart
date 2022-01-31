@@ -1,6 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
-import 'package:musical_app/utility/neumorphicplaylist.dart';
+import 'package:musical_app/utility/neumorphic_playlist_container.dart';
 
 class PlaylistContainer extends StatefulWidget {
   const PlaylistContainer({Key? key}) : super(key: key);
