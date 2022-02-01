@@ -19,6 +19,11 @@ class _SongListState extends State<SongList> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
+        centerTitle: true,
+        title: Text(
+          'Playlist',
+          style: GoogleFonts.montserrat(color: Colors.grey[800]),
+        ),
       ),
       body: ListView.builder(
         scrollDirection: Axis.vertical,
