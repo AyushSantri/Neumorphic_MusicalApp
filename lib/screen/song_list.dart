@@ -19,16 +19,17 @@ class _SongListState extends State<SongList> {
   }
 
   loadData() async {
+    await Future.delayed(Duration(seconds: 2));
     var data = await rootBundle.loadString('files/songlist.json');
     var decodedJSON = jsonDecode(data);
 
     var fetchedData = decodedJSON['playlist1'];
 
-    SongData().songData = List.from(fetchedData)
+    SongData.songData = List.from(fetchedData)
         .map<SongDetail>((item) => SongDetail.fromMap(item))
         .toList();
-    print(SongData().songData.length);
 
+    print(SongData.songData.length);
     setState(() {});
   }
 
@@ -38,7 +39,9 @@ class _SongListState extends State<SongList> {
       appBar: AppBar(
         title: Text('Songs'),
       ),
-      body: Container(),
+      body: Container(
+        child: Text(SongData.songData[0].title),
+      ),
     );
   }
 }
