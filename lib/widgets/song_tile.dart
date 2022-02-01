@@ -13,11 +13,11 @@ class SongTile extends StatelessWidget {
       onTap: () {},
       title: Text(
         songDetail.title,
-        style: GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
+        style: GoogleFonts.montserrat(fontSize: 15, color: Colors.grey[850]),
       ),
       subtitle: Text(
         songDetail.author,
-        style: GoogleFonts.montserrat(fontSize: 12, color: Colors.black54),
+        style: GoogleFonts.montserrat(fontSize: 12, color: Colors.black38),
       ),
       trailing: IconButton(
         onPressed: () {},
