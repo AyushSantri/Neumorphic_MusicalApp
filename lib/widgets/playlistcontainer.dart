@@ -11,8 +11,8 @@ class PlaylistContainer extends StatefulWidget {
 }
 
 class _PlaylistContainerState extends State<PlaylistContainer> {
-  static List<Widget> playlists = [
-    const NeumorphicPlaylistContainer(playlistName: 'Chill'),
+  List<Widget> playlists = [
+    const AddYourSong(),
     const NeumorphicPlaylistContainer(playlistName: 'Hip-Hop')
   ];
 
