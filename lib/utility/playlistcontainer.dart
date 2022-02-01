@@ -1,5 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
+import 'package:musical_app/screen/song_list.dart';
 import 'package:musical_app/utility/neumorphic_playlist_container.dart';
 
 class PlaylistContainer extends StatefulWidget {
@@ -25,7 +26,12 @@ class _PlaylistContainerState extends State<PlaylistContainer> {
           itemBuilder: (context, int index) {
             return InkWell(
                 onTap: () {
-                  print(index);
+                  setState(() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SongList()));
+                  });
                 },
                 child: playlists[index]);
           }),
