@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:musical_app/entities/songs_data.dart';
 
 class SongList extends StatefulWidget {
   const SongList({Key? key}) : super(key: key);
@@ -14,7 +18,19 @@ class _SongListState extends State<SongList> {
     loadData();
   }
 
-  loadData() {}
+  loadData() async {
+    var data = await rootBundle.loadString('files/songlist.json');
+    var decodedJSON = jsonDecode(data);
+
+    var fetchedData = decodedJSON['playlist1'];
+
+    SongData().songData = List.from(fetchedData)
+        .map<SongDetail>((item) => SongDetail.fromMap(item))
+        .toList();
+    print(SongData().songData.length);
+
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
