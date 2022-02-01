@@ -9,6 +9,14 @@ class SongList extends StatefulWidget {
 
 class _SongListState extends State<SongList> {
   @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() {}
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
