@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/entities/songs_data.dart';
+import 'package:musical_app/widgets/song_tile.dart';
 
 class SongList extends StatefulWidget {
   const SongList({Key? key}) : super(key: key);
@@ -25,25 +26,8 @@ class _SongListState extends State<SongList> {
         itemBuilder: (context, index) {
           return Column(
             children: [
-              ListTile(
-                onTap: () {},
-                title: Text(
-                  SongData.songData[index].title,
-                  style: GoogleFonts.montserrat(
-                      fontSize: 15, color: Colors.black54),
-                ),
-                subtitle: Text(
-                  SongData.songData[index].author,
-                  style: GoogleFonts.montserrat(
-                      fontSize: 12, color: Colors.black54),
-                ),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    CupertinoIcons.play,
-                    color: Colors.red,
-                  ),
-                ),
+              SongTile(
+                songDetail: SongData.songData[index],
               ),
               const Divider(
                 color: Colors.black54,
