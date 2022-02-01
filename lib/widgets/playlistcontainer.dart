@@ -25,6 +25,8 @@ class _PlaylistContainerState extends State<PlaylistContainer> {
           itemCount: playlists.length,
           itemBuilder: (context, int index) {
             return InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () {
                   setState(() {
                     Navigator.push(
