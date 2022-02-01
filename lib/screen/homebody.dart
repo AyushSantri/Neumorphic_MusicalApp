@@ -31,9 +31,29 @@ class HomeBody extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 25,
+            height: 20,
           ),
           const PlaylistContainer(),
+          const SizedBox(
+            height: 25,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Recommended',
+                style:
+                    GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
+              ),
+              const Text(
+                '...',
+                style: TextStyle(color: Colors.black54),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 15,
+          ),
           const Expanded(child: HomeList()),
         ],
       ),
