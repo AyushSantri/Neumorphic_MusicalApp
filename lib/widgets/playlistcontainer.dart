@@ -24,18 +24,7 @@ class _PlaylistContainerState extends State<PlaylistContainer> {
           scrollDirection: Axis.horizontal,
           itemCount: playlists.length,
           itemBuilder: (context, int index) {
-            return InkWell(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () {
-                  setState(() {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SongList()));
-                  });
-                },
-                child: playlists[index]);
+            return playlists[index];
           }),
     );
   }
