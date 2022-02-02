@@ -105,6 +105,5 @@ class AddYourSong extends StatelessWidget {
         ),
       ],
     );
-    ;
   }
 }
