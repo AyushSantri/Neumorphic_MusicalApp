@@ -34,6 +34,5 @@ class _SongTileState extends State<SongTile> {
         ),
       ),
     );
-    ;
   }
 }
