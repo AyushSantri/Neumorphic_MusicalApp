@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/widgets/playlistcontainer.dart';
 
@@ -13,6 +16,28 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  List<SongDetail> songs = [];
+  loadData() async {
+    await Future.delayed(const Duration(seconds: 2));
+    var data = await rootBundle.loadString('files/songlist.json');
+    var decodedJSON = jsonDecode(data);
+
+    var fetchedData = decodedJSON['playlist1'];
+
+    SongData.songData = List.from(fetchedData)
+        .map<SongDetail>((item) => SongDetail.fromMap(item))
+        .toList();
+
+    print(songs.length);
+    setState(() {});
+  }
+
   Expanded homeList() {
     return Expanded(
       child: ListView.builder(
@@ -61,7 +86,7 @@ class _HomeBodyState extends State<HomeBody> {
           const SizedBox(
             height: 20,
           ),
-          const PlaylistContainer(),
+          PlaylistContainer(),
           const SizedBox(
             height: 25,
           ),
@@ -82,14 +107,11 @@ class _HomeBodyState extends State<HomeBody> {
           const SizedBox(
             height: 15,
           ),
-          if (SongData.songData.isEmpty)
-            const Expanded(
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            )
-          else
-            homeList(),
+          SongData.songData.isEmpty
+              ? Expanded(
+                  child: CircularProgressIndicator(),
+                )
+              : homeList(),
         ],
       ),
     );

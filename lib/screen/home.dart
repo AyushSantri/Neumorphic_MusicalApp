@@ -16,27 +16,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  void initState() {
-    super.initState();
-    loadData();
-  }
-
-  loadData() async {
-    await Future.delayed(const Duration(seconds: 2));
-    var data = await rootBundle.loadString('files/songlist.json');
-    var decodedJSON = jsonDecode(data);
-
-    var fetchedData = decodedJSON['playlist1'];
-
-    SongData.songData = List.from(fetchedData)
-        .map<SongDetail>((item) => SongDetail.fromMap(item))
-        .toList();
-
-    print(SongData.songData.length);
-    setState(() {});
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300]!,

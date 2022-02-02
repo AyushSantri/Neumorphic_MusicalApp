@@ -17,8 +17,8 @@ class NeumorphicPlaylistContainer extends StatelessWidget {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const SongList()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => SongList()));
           },
           child: Container(
             height: 150,
