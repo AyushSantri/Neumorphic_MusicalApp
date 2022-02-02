@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,8 +13,18 @@ class SongTile extends StatefulWidget {
 }
 
 class _SongTileState extends State<SongTile> {
+  late AudioPlayer audioPlayer;
+  bool _isPlaying = false;
+
+  @override
+  void initState() {
+    audioPlayer = AudioPlayer();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    audioPlayer.setUrl(widget.songDetail.url);
     return ListTile(
       onTap: () {},
       title: Text(
@@ -26,9 +37,16 @@ class _SongTileState extends State<SongTile> {
       ),
       trailing: Container(
         child: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            CupertinoIcons.play,
+          onPressed: () {
+            setState(() {
+              _isPlaying = !_isPlaying;
+              _isPlaying
+                  ? audioPlayer.play(widget.songDetail.url)
+                  : audioPlayer.pause();
+            });
+          },
+          icon: Icon(
+            _isPlaying ? CupertinoIcons.pause_fill : CupertinoIcons.play_fill,
             color: Colors.red,
           ),
         ),
