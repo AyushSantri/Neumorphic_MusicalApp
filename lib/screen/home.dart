@@ -22,6 +22,7 @@ class _HomeState extends State<Home> {
   }
 
   loadData() async {
+    await Future.delayed(const Duration(seconds: 2));
     var data = await rootBundle.loadString('files/songlist.json');
     var decodedJSON = jsonDecode(data);
 

@@ -5,8 +5,36 @@ import 'package:musical_app/widgets/playlistcontainer.dart';
 import '../entities/songs_data.dart';
 import '../widgets/song_tile.dart';
 
-class HomeBody extends StatelessWidget {
+class HomeBody extends StatefulWidget {
   const HomeBody({Key? key}) : super(key: key);
+
+  @override
+  State<HomeBody> createState() => _HomeBodyState();
+}
+
+class _HomeBodyState extends State<HomeBody> {
+  Expanded homeList() {
+    return Expanded(
+      child: ListView.builder(
+        scrollDirection: Axis.vertical,
+        itemCount: SongData.songData.length,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              SongTile(
+                songDetail: SongData.songData[index],
+              ),
+              const Divider(
+                color: Colors.black54,
+                indent: 20,
+                endIndent: 20,
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,40 +82,9 @@ class HomeBody extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const Expanded(child: HomeList()),
+          homeList(),
         ],
       ),
-    );
-  }
-}
-
-class HomeList extends StatefulWidget {
-  const HomeList({Key? key}) : super(key: key);
-
-  @override
-  _HomeListState createState() => _HomeListState();
-}
-
-class _HomeListState extends State<HomeList> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.vertical,
-      itemCount: SongData.songData.length,
-      itemBuilder: (context, index) {
-        return Column(
-          children: [
-            SongTile(
-              songDetail: SongData.songData[index],
-            ),
-            const Divider(
-              color: Colors.black54,
-              indent: 20,
-              endIndent: 20,
-            ),
-          ],
-        );
-      },
     );
   }
 }
