@@ -82,7 +82,14 @@ class _HomeBodyState extends State<HomeBody> {
           const SizedBox(
             height: 15,
           ),
-          homeList(),
+          if (SongData.songData.isEmpty)
+            const Expanded(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            )
+          else
+            homeList(),
         ],
       ),
     );
