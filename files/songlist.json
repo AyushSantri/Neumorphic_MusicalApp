@@ -1,64 +1,64 @@
 {
   "playlist1": [
     {
-      "author": "Alejandro Magana", 
-      "id": 1, 
-      "title": "Tech House vibes",
-      "url": "https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3"
-    }, 
-    {
-      "author": "Alejandro Magana", 
-      "id": 2, 
-      "title": "Hazy After Hours",
-      "url": "https://assets.mixkit.co/music/preview/mixkit-hazy-after-hours-132.mp3"
-    }, 
-    {
-      "author": "Lily J", 
-      "id": 3, 
-      "title": "Hip Hop 02",
-      "url": "https://assets.mixkit.co/music/preview/mixkit-hip-hop-02-738.mp3"
+      "author": "Arijit Singh",
+      "id": 1,
+      "title": "Agar Tum Sath Ho",
+      "url": "agrtumsathho.mp3"
     },
     {
-        "author": "Eugenio",
-        "id": 4,
-        "title": "Sun and his daughter",
-        "url": "https://assets.mixkit.co/music/preview/mixkit-sun-and-his-daughter-580.mp3"
+      "author": "Jubin Nautiyal",
+      "id": 2,
+      "title": "Tere Bina Mera Hove Na Guzara",
+      "url": "terebina.mp3"
     },
     {
-        "author": "Ahjay",
-        "id": 5,
-        "title": "Raising me higher",
-        "url": "https://assets.mixkit.co/music/preview/mixkit-raising-me-higher-34.mp3"
+      "author": "Jubin Nautiyal",
+      "id": 3,
+      "title": "Tu Jo Mila",
+      "url": "tujomila.mp3"
     },
     {
-        "author": "Ahjay",
-        "id": 6,
-        "title": "Driving ambition",
-        "url": "https://assets.mixkit.co/music/preview/mixkit-driving-ambition-32.mp3"
-     },
-     {
-         "author": "Michael Ramir C.",
-         "id": 7,
-         "title": "Life is a Dream",
-         "url": "https://assets.mixkit.co/music/preview/mixkit-life-is-a-dream-837.mp3"
-     },
-     {
-         "author": "Arulo",
-         "id": 8,
-         "title": "Serene view",
-         "url": "https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3"
-     },
-     {
-         "author": "Ahjay",
-         "id": 9,
-         "title": "Dance with me",
-         "url": "https://assets.mixkit.co/music/preview/mixkit-dance-with-me-3.mp3"
-     },
-     {
-         "author": "Andy Williams",
-         "id": 10,
-         "title": "Deep Urban",
-         "url": "https://assets.mixkit.co/music/preview/mixkit-deep-urban-623.mp3"
-     }
+      "author": "Arijit Singh",
+      "id": 4,
+      "title": "Shyame Malang Si",
+      "url": "shyamemalang.mp3"
+    },
+    {
+      "author": "Arijit Singh",
+      "id": 5,
+      "title": "Pachtaoge X Tum Hi Ho",
+      "url": "pachtaoge.mp3"
+    },
+    {
+      "author": "Ankit Tiwari",
+      "id": 6,
+      "title": "Dil Cheez Tujhe Dedi Slowed Reverb ",
+      "url": "dillcheez.mp3"
+    },
+    {
+      "author": "Harnoor",
+      "id": 7,
+      "title": "Waalian ",
+      "url": "waalian.mp3"
+    },
+    {
+      "author": "Shreya Ghosal",
+      "id": 8,
+      "title": "Sidnaaz (Slowed Reverb LoFi)",
+      "url": "sidnaaz.mp3"
+    },
+    {
+      "author": "Ammy Virk, B Praak",
+      "id": 9,
+      "title": "Qismat (Lofi Mix)",
+      "url": "qismat.mp3"
+    },
+    {
+      "author": "Arijit Singh",
+      "id": 10,
+      "title": "Pal (Lofi)",
+      "url": "pal.mp3"
+    }
   ]
-  }
+}
