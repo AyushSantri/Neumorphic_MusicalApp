@@ -108,8 +108,8 @@ class _HomeBodyState extends State<HomeBody> {
             height: 15,
           ),
           SongData.songData.isEmpty
-              ? Expanded(
-                  child: CircularProgressIndicator(),
+              ? const Expanded(
+                  child: Center(child: CircularProgressIndicator()),
                 )
               : homeList(),
         ],
