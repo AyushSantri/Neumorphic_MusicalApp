@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:musical_app/entities/songs_data.dart';
 import 'package:musical_app/screen/song_list.dart';
 
 class NeumorphicPlaylistContainer extends StatelessWidget {
@@ -98,10 +97,6 @@ class AddYourSong extends StatelessWidget {
         ),
         const SizedBox(
           height: 6,
-        ),
-        Text(
-          '${SongData.songData.length.toString()} songs',
-          style: GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
         ),
       ],
     );
