@@ -53,7 +53,7 @@ class NeumorphicPlaylistContainer extends StatelessWidget {
           height: 6,
         ),
         Text(
-          '${SongData.songData.length.toString()} songs',
+          '10 songs',
           style: GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
         ),
       ],
