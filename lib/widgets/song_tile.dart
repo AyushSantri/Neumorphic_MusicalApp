@@ -45,6 +45,24 @@ class _SongTileState extends State<SongTile> {
         style: GoogleFonts.montserrat(fontSize: 12, color: Colors.black38),
       ),
       trailing: Container(
+        height: 40,
+        width: 40,
+        padding: EdgeInsets.only(left: 2.5, top: 2),
+        decoration: BoxDecoration(
+            color: const Color.fromRGBO(227, 225, 225, 0.6),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-4.0, -3.0),
+                  blurRadius: 3.0,
+                  spreadRadius: 0.8),
+              BoxShadow(
+                  color: Colors.black12,
+                  offset: Offset(3.0, 3.0),
+                  blurRadius: 3.0,
+                  spreadRadius: 0.0)
+            ]),
         child: IconButton(
           onPressed: () {
             setState(() {
@@ -55,6 +73,7 @@ class _SongTileState extends State<SongTile> {
           icon: Icon(
             _isPlaying ? CupertinoIcons.pause_fill : CupertinoIcons.play_fill,
             color: Colors.red,
+            size: 20,
           ),
         ),
       ),
