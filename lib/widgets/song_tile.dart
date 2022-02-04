@@ -13,18 +13,27 @@ class SongTile extends StatefulWidget {
 }
 
 class _SongTileState extends State<SongTile> {
-  late AudioPlayer audioPlayer;
+  late AudioPlayer audioPlayer = AudioPlayer();
+  late AudioCache audioCache;
   bool _isPlaying = false;
 
   @override
   void initState() {
-    audioPlayer = AudioPlayer();
     super.initState();
+
+    audioCache = AudioCache(prefix: 'assets/audio/', fixedPlayer: audioPlayer);
+  }
+
+  playMusic() async {
+    await audioCache.play(widget.songDetail.url);
+  }
+
+  pauseMusic() async {
+    await audioPlayer.pause();
   }
 
   @override
   Widget build(BuildContext context) {
-    audioPlayer.setUrl(widget.songDetail.url);
     return ListTile(
       onTap: () {},
       title: Text(
@@ -40,9 +49,7 @@ class _SongTileState extends State<SongTile> {
           onPressed: () {
             setState(() {
               _isPlaying = !_isPlaying;
-              _isPlaying
-                  ? audioPlayer.play(widget.songDetail.url)
-                  : audioPlayer.pause();
+              _isPlaying ? playMusic() : pauseMusic();
             });
           },
           icon: Icon(
