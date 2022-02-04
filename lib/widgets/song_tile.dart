@@ -47,7 +47,7 @@ class _SongTileState extends State<SongTile> {
       trailing: Container(
         height: 40,
         width: 40,
-        padding: EdgeInsets.only(left: 2.5, top: 2),
+        padding: const EdgeInsets.only(left: 2.1, bottom: 1.4),
         decoration: BoxDecoration(
             color: const Color.fromRGBO(227, 225, 225, 0.6),
             borderRadius: BorderRadius.circular(20),
@@ -73,7 +73,7 @@ class _SongTileState extends State<SongTile> {
           icon: Icon(
             _isPlaying ? CupertinoIcons.pause_fill : CupertinoIcons.play_fill,
             color: Colors.red,
-            size: 20,
+            size: 17,
           ),
         ),
       ),
