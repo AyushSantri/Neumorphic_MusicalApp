@@ -21,7 +21,7 @@ class _SongTileState extends State<SongTile> {
   void initState() {
     super.initState();
 
-    audioCache = AudioCache(prefix: 'assets/audio/', fixedPlayer: audioPlayer);
+    audioCache = AudioCache(prefix: 'asset/audio/', fixedPlayer: audioPlayer);
   }
 
   playMusic() async {
