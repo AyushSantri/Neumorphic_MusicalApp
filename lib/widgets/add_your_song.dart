@@ -31,8 +31,8 @@ class AddYourSong extends StatelessWidget {
           ),
           child: Center(
             child: Icon(
-              CupertinoIcons.add_circled,
-              color: Colors.grey[500],
+              CupertinoIcons.add,
+              color: Colors.grey[400],
               size: 100,
             ),
           ),
