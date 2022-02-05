@@ -44,25 +44,32 @@ class _SongTileState extends State<SongTile> {
         widget.songDetail.author,
         style: GoogleFonts.montserrat(fontSize: 12, color: Colors.black38),
       ),
-      trailing: Container(
+      trailing: AnimatedContainer(
         height: 40,
         width: 40,
         padding: const EdgeInsets.only(left: 2.1, bottom: 1.4),
-        decoration: BoxDecoration(
-            color: const Color.fromRGBO(227, 225, 225, 0.6),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(-4.0, -3.0),
-                  blurRadius: 3.0,
-                  spreadRadius: 0.8),
-              BoxShadow(
-                  color: Colors.black12,
-                  offset: Offset(3.0, 3.0),
-                  blurRadius: 3.0,
-                  spreadRadius: 0.0)
-            ]),
+        decoration: _isPlaying
+            ? BoxDecoration(
+                color: const Color.fromRGBO(227, 225, 225, 0.6),
+                borderRadius: BorderRadius.circular(20),
+              )
+            : BoxDecoration(
+                color: const Color.fromRGBO(227, 225, 225, 0.6),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: const [
+                    BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(-4.0, -3.0),
+                        blurRadius: 3.0,
+                        spreadRadius: 0.8),
+                    BoxShadow(
+                        color: Colors.black12,
+                        offset: Offset(3.0, 3.0),
+                        blurRadius: 3.0,
+                        spreadRadius: 0.0)
+                  ]),
+        duration: const Duration(milliseconds: 800),
+        curve: Curves.easeInOut,
         child: IconButton(
           onPressed: () {
             setState(() {
