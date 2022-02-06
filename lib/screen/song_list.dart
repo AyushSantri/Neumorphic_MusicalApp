@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,14 +12,6 @@ class SongList extends StatefulWidget {
 }
 
 class _SongListState extends State<SongList> {
-  late AudioPlayer audioPlayer;
-
-  @override
-  void initState() {
-    super.initState();
-    audioPlayer = AudioPlayer();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +33,6 @@ class _SongListState extends State<SongList> {
             children: [
               SongTile(
                 songDetail: SongData.songData[index],
-                audioPlayer: audioPlayer,
               ),
               const Divider(
                 color: Colors.black54,

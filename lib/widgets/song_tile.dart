@@ -5,17 +5,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/entities/songs_data.dart';
 
 class SongTile extends StatefulWidget {
-  const SongTile(
-      {Key? key, required this.songDetail, required this.audioPlayer})
-      : super(key: key);
+  const SongTile({Key? key, required this.songDetail}) : super(key: key);
   final SongDetail songDetail;
-  final AudioPlayer audioPlayer;
 
   @override
   State<SongTile> createState() => _SongTileState();
 }
 
 class _SongTileState extends State<SongTile> {
+  late AudioPlayer audioPlayer = AudioPlayer();
   late AudioCache audioCache;
   bool _isPlaying = false;
 
@@ -23,8 +21,7 @@ class _SongTileState extends State<SongTile> {
   void initState() {
     super.initState();
 
-    audioCache =
-        AudioCache(prefix: 'asset/audio/', fixedPlayer: widget.audioPlayer);
+    audioCache = AudioCache(prefix: 'asset/audio/', fixedPlayer: audioPlayer);
   }
 
   playMusic() async {
@@ -32,7 +29,7 @@ class _SongTileState extends State<SongTile> {
   }
 
   pauseMusic() async {
-    await widget.audioPlayer.pause();
+    await audioPlayer.pause();
   }
 
   @override
