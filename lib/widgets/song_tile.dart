@@ -16,7 +16,6 @@ class SongTile extends StatefulWidget {
 }
 
 class _SongTileState extends State<SongTile> {
-  late AudioPlayer audioPlayer = AudioPlayer();
   late AudioCache audioCache;
   bool _isPlaying = false;
 
@@ -24,7 +23,8 @@ class _SongTileState extends State<SongTile> {
   void initState() {
     super.initState();
 
-    audioCache = AudioCache(prefix: 'asset/audio/', fixedPlayer: audioPlayer);
+    audioCache =
+        AudioCache(prefix: 'asset/audio/', fixedPlayer: widget.audioPlayer);
   }
 
   playMusic() async {
@@ -32,7 +32,7 @@ class _SongTileState extends State<SongTile> {
   }
 
   pauseMusic() async {
-    await audioPlayer.pause();
+    await widget.audioPlayer.pause();
   }
 
   @override
