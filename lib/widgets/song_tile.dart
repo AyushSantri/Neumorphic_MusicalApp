@@ -5,8 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/entities/songs_data.dart';
 
 class SongTile extends StatefulWidget {
-  const SongTile({Key? key, required this.songDetail}) : super(key: key);
+  const SongTile(
+      {Key? key, required this.songDetail, required this.audioPlayer})
+      : super(key: key);
   final SongDetail songDetail;
+  final AudioPlayer audioPlayer;
 
   @override
   State<SongTile> createState() => _SongTileState();
