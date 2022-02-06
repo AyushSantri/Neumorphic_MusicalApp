@@ -42,6 +42,7 @@ class _SongListState extends State<SongList> {
             children: [
               SongTile(
                 songDetail: SongData.songData[index],
+                audioPlayer: audioPlayer,
               ),
               const Divider(
                 color: Colors.black54,
