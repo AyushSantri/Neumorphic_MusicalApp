@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +18,7 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
+  AudioPlayer audioPlayer = AudioPlayer();
   @override
   void initState() {
     super.initState();
@@ -118,7 +120,12 @@ class _HomeBodyState extends State<HomeBody> {
             ],
           ),
         ),
-        const Positioned(left: 7, bottom: 7, child: BottomPLayer()),
+        Positioned(
+            left: 7,
+            bottom: 7,
+            child: BottomPLayer(
+              audioPlayer: audioPlayer,
+            )),
       ],
     );
   }

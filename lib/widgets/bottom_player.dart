@@ -1,7 +1,9 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class BottomPLayer extends StatelessWidget {
-  const BottomPLayer({Key? key}) : super(key: key);
+  final AudioPlayer audioPlayer;
+  const BottomPLayer({Key? key, required this.audioPlayer}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
