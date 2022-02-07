@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BottomPLayer extends StatelessWidget {
   const BottomPLayer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.grey[300],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Center(
+              child: Text('Listen Now',
+                  style: GoogleFonts.montserrat(
+                      color: Colors.grey[800],
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500)),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
