@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BottomPLayer extends StatelessWidget {
-  const BottomPLayer({Key? key}) : super(key: key);
+class MusicPLayer extends StatelessWidget {
+  const MusicPLayer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
