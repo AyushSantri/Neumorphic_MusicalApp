@@ -118,7 +118,7 @@ class _HomeBodyState extends State<HomeBody> {
             ],
           ),
         ),
-        const Positioned(left: 7, bottom: 0, child: BottomPLayer()),
+        const Positioned(left: 7, bottom: 7, child: BottomPLayer()),
       ],
     );
   }
