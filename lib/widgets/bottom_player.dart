@@ -7,7 +7,7 @@ class BottomPLayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100,
-      width: MediaQuery.of(context).size.width / 1.1,
+      width: MediaQuery.of(context).size.width / 1.04,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(40),
         color: Colors.blue,
