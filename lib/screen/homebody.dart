@@ -1,10 +1,8 @@
 import 'dart:convert';
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:musical_app/widgets/bottom_player.dart';
 import 'package:musical_app/widgets/playlistcontainer.dart';
 
 import '../entities/songs_data.dart';
@@ -18,7 +16,6 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  AudioPlayer audioPlayer = AudioPlayer();
   @override
   void initState() {
     super.initState();
@@ -66,67 +63,57 @@ class _HomeBodyState extends State<HomeBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 25, left: 20, right: 20),
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return Container(
+      margin: const EdgeInsets.only(top: 25, left: 20, right: 20),
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Collections',
-                    style: GoogleFonts.montserrat(
-                        fontSize: 15, color: Colors.black54),
-                  ),
-                  const Text(
-                    '...',
-                    style: TextStyle(color: Colors.black54),
-                  ),
-                ],
+              Text(
+                'Collections',
+                style:
+                    GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
               ),
-              const SizedBox(
-                height: 20,
+              const Text(
+                '...',
+                style: TextStyle(color: Colors.black54),
               ),
-              const PlaylistContainer(),
-              const SizedBox(
-                height: 25,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Recommended',
-                    style: GoogleFonts.montserrat(
-                        fontSize: 15, color: Colors.black54),
-                  ),
-                  const Text(
-                    '...',
-                    style: TextStyle(color: Colors.black54),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              SongData.songData.isEmpty
-                  ? const Expanded(
-                      child: Center(child: CircularProgressIndicator()),
-                    )
-                  : homeList(),
             ],
           ),
-        ),
-        Positioned(
-            left: 7,
-            bottom: 7,
-            child: BottomPLayer(
-              audioPlayer: audioPlayer,
-            )),
-      ],
+          const SizedBox(
+            height: 20,
+          ),
+          PlaylistContainer(),
+          const SizedBox(
+            height: 25,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Recommended',
+                style:
+                    GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
+              ),
+              const Text(
+                '...',
+                style: TextStyle(color: Colors.black54),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SongData.songData.isEmpty
+              ? const Expanded(
+                  child: Center(child: CircularProgressIndicator()),
+                )
+              : homeList(),
+        ],
+      ),
     );
   }
 }
