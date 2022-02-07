@@ -18,6 +18,9 @@ class MusicPLayer extends StatelessWidget {
                       fontSize: 25,
                       fontWeight: FontWeight.w500)),
             ),
+            const SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),
