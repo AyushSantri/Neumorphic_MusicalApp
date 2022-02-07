@@ -64,57 +64,62 @@ class _HomeBodyState extends State<HomeBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 25, left: 20, right: 20),
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Stack(
+      children: [
+        Container(
+          margin: const EdgeInsets.only(top: 25, left: 20, right: 20),
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Collections',
-                style:
-                    GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Collections',
+                    style: GoogleFonts.montserrat(
+                        fontSize: 15, color: Colors.black54),
+                  ),
+                  const Text(
+                    '...',
+                    style: TextStyle(color: Colors.black54),
+                  ),
+                ],
               ),
-              const Text(
-                '...',
-                style: TextStyle(color: Colors.black54),
+              const SizedBox(
+                height: 20,
               ),
+              const PlaylistContainer(),
+              const SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Recommended',
+                    style: GoogleFonts.montserrat(
+                        fontSize: 15, color: Colors.black54),
+                  ),
+                  const Text(
+                    '...',
+                    style: TextStyle(color: Colors.black54),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SongData.songData.isEmpty
+                  ? const Expanded(
+                      child: Center(child: CircularProgressIndicator()),
+                    )
+                  : homeList(),
             ],
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          PlaylistContainer(),
-          const SizedBox(
-            height: 25,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Recommended',
-                style:
-                    GoogleFonts.montserrat(fontSize: 15, color: Colors.black54),
-              ),
-              const Text(
-                '...',
-                style: TextStyle(color: Colors.black54),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          SongData.songData.isEmpty
-              ? const Expanded(
-                  child: Center(child: CircularProgressIndicator()),
-                )
-              : homeList(),
-        ],
-      ),
+        ),
+        const Positioned(bottom: 0, child: BottomPLayer()),
+      ],
     );
   }
 }
