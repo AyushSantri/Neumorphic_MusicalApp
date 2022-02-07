@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/entities/songs_data.dart';
+import 'package:musical_app/widgets/bottom_player.dart';
 
 class SongTile extends StatefulWidget {
   const SongTile({Key? key, required this.songDetail}) : super(key: key);
@@ -35,7 +36,10 @@ class _SongTileState extends State<SongTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => BottomPLayer()));
+      },
       title: Text(
         widget.songDetail.title,
         style: GoogleFonts.montserrat(fontSize: 15, color: Colors.grey[850]),
