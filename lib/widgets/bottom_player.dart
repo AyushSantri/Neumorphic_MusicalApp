@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BottomPLayer extends StatelessWidget {
@@ -8,8 +7,9 @@ class BottomPLayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.width / 1.1,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40),
         color: Colors.blue,
       ),
     );
