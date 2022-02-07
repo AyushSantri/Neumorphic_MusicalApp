@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:musical_app/widgets/bottom_player.dart';
 import 'package:musical_app/widgets/playlistcontainer.dart';
 
 import '../entities/songs_data.dart';
