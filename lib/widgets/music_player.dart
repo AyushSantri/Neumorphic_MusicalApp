@@ -16,8 +16,8 @@ class MusicPLayer extends StatefulWidget {
 }
 
 class _MusicPLayerState extends State<MusicPLayer> {
-  Duration _duration = Duration();
-  Duration _position = Duration();
+  Duration _duration = const Duration();
+  Duration _position = const Duration();
 
   @override
   void initState() {
