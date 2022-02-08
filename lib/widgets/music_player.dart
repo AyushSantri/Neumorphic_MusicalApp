@@ -160,8 +160,8 @@ class _MusicPLayerState extends State<MusicPLayer> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AnimatedContainer(
-                  height: 40,
-                  width: 40,
+                  height: 50,
+                  width: 50,
                   padding: const EdgeInsets.only(left: 2.1, bottom: 1.4),
                   decoration: _playerState == PlayerState.PAUSED
                       ? BoxDecoration(
@@ -170,7 +170,7 @@ class _MusicPLayerState extends State<MusicPLayer> {
                         )
                       : BoxDecoration(
                           color: const Color.fromRGBO(227, 225, 225, 0.6),
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(25),
                           boxShadow: const [
                               BoxShadow(
                                   color: Colors.white,
@@ -198,7 +198,7 @@ class _MusicPLayerState extends State<MusicPLayer> {
                           ? CupertinoIcons.play_fill
                           : CupertinoIcons.pause_fill,
                       color: Colors.red,
-                      size: 17,
+                      size: 25,
                     ),
                   ),
                 ),
