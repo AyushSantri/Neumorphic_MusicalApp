@@ -151,6 +151,7 @@ class _MusicPLayerState extends State<MusicPLayer> {
               ),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AnimatedContainer(
                   height: 40,
@@ -168,16 +169,16 @@ class _MusicPLayerState extends State<MusicPLayer> {
                               BoxShadow(
                                   color: Colors.white,
                                   offset: Offset(-4.0, -3.0),
-                                  blurRadius: 3.0,
-                                  spreadRadius: 0.8),
+                                  blurRadius: 4.0,
+                                  spreadRadius: -2),
                               BoxShadow(
                                   color: Colors.black12,
                                   offset: Offset(3.0, 3.0),
                                   blurRadius: 3.0,
                                   spreadRadius: 0.0)
                             ]),
-                  duration: const Duration(milliseconds: 800),
-                  curve: Curves.easeInOut,
+                  duration: const Duration(milliseconds: 900),
+                  curve: Curves.easeIn,
                   child: IconButton(
                     onPressed: () {
                       setState(() {
