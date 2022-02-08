@@ -1,6 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/entities/songs_data.dart';
 
@@ -123,6 +122,24 @@ class _MusicPLayerState extends State<MusicPLayer> {
               style: GoogleFonts.montserrat(
                   fontSize: 20, color: Colors.black54, letterSpacing: 0.7),
             ),
+            SliderTheme(
+              data: const SliderThemeData(
+                  thumbShape: RoundSliderThumbShape(enabledThumbRadius: 6)),
+              child: Slider(
+                value: _position.inSeconds.toDouble(),
+                min: 0.0,
+                max: _duration.inSeconds.toDouble(),
+                activeColor: Colors.red[600],
+                onChanged: (double value) {},
+              ),
+            ),
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    playMusic();
+                  });
+                },
+                child: Text('PLay'))
           ],
         ),
       ),
