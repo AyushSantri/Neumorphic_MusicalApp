@@ -40,6 +40,14 @@ class _MusicPLayerState extends State<MusicPLayer> {
     });
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+
+    widget.audioPlayer.release();
+    audioCache.clearAll();
+  }
+
   playMusic() async {
     await audioCache.play(widget.songDetail.url);
   }
