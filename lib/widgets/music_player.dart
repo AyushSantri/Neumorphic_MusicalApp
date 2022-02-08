@@ -60,17 +60,19 @@ class MusicPLayer extends StatelessWidget {
               height: 55,
             ),
             Text(
-              'Arijit Singh',
+              songDetail.title,
               style: GoogleFonts.montserrat(
-                  fontSize: 25, color: Colors.black87, letterSpacing: 0.7),
+                  fontSize: 25,
+                  color: Colors.black87,
+                  letterSpacing: songDetail.title.length >= 25 ? -2 : 0),
             ),
             const SizedBox(
               height: 15,
             ),
             Text(
-              'Dildara',
-              style:
-                  GoogleFonts.montserrat(fontSize: 20, color: Colors.black54),
+              songDetail.author,
+              style: GoogleFonts.montserrat(
+                  fontSize: 20, color: Colors.black54, letterSpacing: 0.7),
             ),
           ],
         ),
