@@ -124,13 +124,16 @@ class _MusicPLayerState extends State<MusicPLayer> {
             ),
             SliderTheme(
               data: const SliderThemeData(
+                  trackHeight: 2,
                   thumbShape: RoundSliderThumbShape(enabledThumbRadius: 6)),
               child: Slider(
                 value: _position.inSeconds.toDouble(),
                 min: 0.0,
                 max: _duration.inSeconds.toDouble(),
                 activeColor: Colors.red[600],
-                onChanged: (double value) {},
+                onChanged: (double value) {
+                  widget.audioPlayer.seek(Duration(seconds: value.toInt()));
+                },
               ),
             ),
             TextButton(
