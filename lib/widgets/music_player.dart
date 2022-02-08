@@ -16,6 +16,8 @@ class MusicPLayer extends StatefulWidget {
 }
 
 class _MusicPLayerState extends State<MusicPLayer> {
+  final Duration _duration = Duration();
+  final Duration _position = Duration();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
