@@ -4,13 +4,18 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/entities/songs_data.dart';
 
-class MusicPLayer extends StatelessWidget {
+class MusicPLayer extends StatefulWidget {
   final SongDetail songDetail;
   final AudioPlayer audioPlayer;
   const MusicPLayer(
       {Key? key, required this.songDetail, required this.audioPlayer})
       : super(key: key);
 
+  @override
+  State<MusicPLayer> createState() => _MusicPLayerState();
+}
+
+class _MusicPLayerState extends State<MusicPLayer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,17 +65,17 @@ class MusicPLayer extends StatelessWidget {
               height: 55,
             ),
             Text(
-              songDetail.title,
+              widget.songDetail.title,
               style: GoogleFonts.montserrat(
                   fontSize: 25,
                   color: Colors.black87,
-                  letterSpacing: songDetail.title.length >= 25 ? -2 : 0),
+                  letterSpacing: widget.songDetail.title.length >= 25 ? -2 : 0),
             ),
             const SizedBox(
               height: 15,
             ),
             Text(
-              songDetail.author,
+              widget.songDetail.author,
               style: GoogleFonts.montserrat(
                   fontSize: 20, color: Colors.black54, letterSpacing: 0.7),
             ),
