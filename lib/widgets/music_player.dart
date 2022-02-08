@@ -23,7 +23,7 @@ class MusicPLayer extends StatelessWidget {
                       fontWeight: FontWeight.w500)),
             ),
             const SizedBox(
-              height: 75,
+              height: 65,
             ),
             Center(
               child: Container(
@@ -50,10 +50,16 @@ class MusicPLayer extends StatelessWidget {
                             'https://pbs.twimg.com/profile_images/1431129444362579971/jGrgSKDD_400x400.jpg'))),
               ),
             ),
+            const SizedBox(
+              height: 55,
+            ),
             Text(
               'Arijit Singh',
-              style:
-                  GoogleFonts.montserrat(fontSize: 25, color: Colors.black87),
+              style: GoogleFonts.montserrat(
+                  fontSize: 25, color: Colors.black87, letterSpacing: 0.7),
+            ),
+            const SizedBox(
+              height: 15,
             ),
             Text(
               'Dildara',
