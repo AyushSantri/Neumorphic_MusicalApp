@@ -40,6 +40,18 @@ class _MusicPLayerState extends State<MusicPLayer> {
     });
   }
 
+  playMusic() async {
+    await audioCache.play(widget.songDetail.url);
+  }
+
+  pauseMusic() async {
+    await widget.audioPlayer.pause();
+  }
+
+  stopMusic() async {
+    await widget.audioPlayer.stop();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
