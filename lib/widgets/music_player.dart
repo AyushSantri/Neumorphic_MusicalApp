@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audioplayers_api.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,6 +22,7 @@ class _MusicPLayerState extends State<MusicPLayer> {
   Duration _position = const Duration();
   PlayerState _playerState = PlayerState.PLAYING;
   late AudioCache audioCache;
+  bool _isLoop = false;
 
   @override
   void initState() {
@@ -203,10 +205,11 @@ class _MusicPLayerState extends State<MusicPLayer> {
                   ),
                 ),
                 AnimatedContainer(
+                  margin: const EdgeInsets.only(left: 12),
                   height: 50,
                   width: 50,
                   padding: const EdgeInsets.only(left: 2.1, bottom: 1.4),
-                  decoration: _playerState == PlayerState.PAUSED
+                  decoration: _isLoop
                       ? BoxDecoration(
                           color: const Color.fromRGBO(227, 225, 225, 0.6),
                           borderRadius: BorderRadius.circular(20),
@@ -230,12 +233,19 @@ class _MusicPLayerState extends State<MusicPLayer> {
                   curve: Curves.easeIn,
                   child: IconButton(
                     onPressed: () {
-                      setState(() {});
+                      setState(() {
+                        _isLoop = !_isLoop;
+                        setState(() {
+                          _isLoop
+                              ? widget.audioPlayer
+                                  .setReleaseMode(ReleaseMode.LOOP)
+                              : widget.audioPlayer
+                                  .setReleaseMode(ReleaseMode.RELEASE);
+                        });
+                      });
                     },
-                    icon: Icon(
-                      _playerState == PlayerState.PAUSED
-                          ? CupertinoIcons.loop
-                          : CupertinoIcons.loop_thick,
+                    icon: const Icon(
+                      CupertinoIcons.loop,
                       color: Colors.red,
                       size: 25,
                     ),
