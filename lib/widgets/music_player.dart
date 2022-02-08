@@ -23,9 +23,15 @@ class _MusicPLayerState extends State<MusicPLayer> {
   void initState() {
     super.initState();
 
-    widget.audioPlayer.onDurationChanged.listen((Duration d) {
+    widget.audioPlayer.onDurationChanged.listen((d) {
       setState(() {
         _duration = d;
+      });
+    });
+
+    widget.audioPlayer.onAudioPositionChanged.listen((p) {
+      setState(() {
+        _position = p;
       });
     });
   }
