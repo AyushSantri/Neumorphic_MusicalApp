@@ -17,7 +17,7 @@ class MusicPLayer extends StatefulWidget {
 class _MusicPLayerState extends State<MusicPLayer> {
   Duration _duration = const Duration();
   Duration _position = const Duration();
-  final PlayerState _playerState = PlayerState.PAUSED;
+  PlayerState _playerState = PlayerState.PAUSED;
   late AudioCache audioCache;
 
   @override
@@ -36,6 +36,12 @@ class _MusicPLayerState extends State<MusicPLayer> {
     widget.audioPlayer.onAudioPositionChanged.listen((Duration p) {
       setState(() {
         _position = p;
+      });
+
+      widget.audioPlayer.onPlayerStateChanged.listen((PlayerState state) {
+        setState(() {
+          _playerState = state;
+        });
       });
     });
   }
