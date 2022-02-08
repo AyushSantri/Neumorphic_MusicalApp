@@ -202,6 +202,45 @@ class _MusicPLayerState extends State<MusicPLayer> {
                     ),
                   ),
                 ),
+                AnimatedContainer(
+                  height: 50,
+                  width: 50,
+                  padding: const EdgeInsets.only(left: 2.1, bottom: 1.4),
+                  decoration: _playerState == PlayerState.PAUSED
+                      ? BoxDecoration(
+                          color: const Color.fromRGBO(227, 225, 225, 0.6),
+                          borderRadius: BorderRadius.circular(20),
+                        )
+                      : BoxDecoration(
+                          color: const Color.fromRGBO(227, 225, 225, 0.6),
+                          borderRadius: BorderRadius.circular(25),
+                          boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.white,
+                                  offset: Offset(-4.0, -3.0),
+                                  blurRadius: 4.0,
+                                  spreadRadius: -2),
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  offset: Offset(3.0, 3.0),
+                                  blurRadius: 3.0,
+                                  spreadRadius: 0.0)
+                            ]),
+                  duration: const Duration(milliseconds: 900),
+                  curve: Curves.easeIn,
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {});
+                    },
+                    icon: Icon(
+                      _playerState == PlayerState.PAUSED
+                          ? CupertinoIcons.loop
+                          : CupertinoIcons.loop_thick,
+                      color: Colors.red,
+                      size: 25,
+                    ),
+                  ),
+                ),
               ],
             ),
             const SizedBox(
