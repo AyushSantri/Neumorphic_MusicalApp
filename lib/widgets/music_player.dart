@@ -20,19 +20,31 @@ class MusicPLayer extends StatelessWidget {
                       fontWeight: FontWeight.w500)),
             ),
             const SizedBox(
-              height: 20,
+              height: 75,
             ),
             Center(
               child: Container(
-                height: 150,
-                width: 150,
+                height: MediaQuery.of(context).size.height / 3.5,
+                width: MediaQuery.of(context).size.height / 4.5,
                 decoration: BoxDecoration(
                     color: Colors.grey[100],
                     borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      const BoxShadow(
+                          color: Colors.white,
+                          offset: Offset(-4.0, -4.0),
+                          blurRadius: 5.0,
+                          spreadRadius: 3.0),
+                      BoxShadow(
+                          color: Colors.grey[400]!,
+                          offset: const Offset(4.0, 4.0),
+                          blurRadius: 5.0,
+                          spreadRadius: 3.0)
+                    ],
                     image: const DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png'))),
+                            'https://pbs.twimg.com/profile_images/1431129444362579971/jGrgSKDD_400x400.jpg'))),
               ),
             )
           ],
