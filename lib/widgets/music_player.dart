@@ -18,10 +18,14 @@ class MusicPLayer extends StatefulWidget {
 class _MusicPLayerState extends State<MusicPLayer> {
   Duration _duration = const Duration();
   Duration _position = const Duration();
+  late AudioCache audioCache;
 
   @override
   void initState() {
     super.initState();
+
+    audioCache =
+        AudioCache(prefix: 'asset/audio/', fixedPlayer: widget.audioPlayer);
 
     widget.audioPlayer.onDurationChanged.listen((d) {
       setState(() {
