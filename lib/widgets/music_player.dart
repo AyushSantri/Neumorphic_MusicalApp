@@ -133,6 +133,9 @@ class _MusicPLayerState extends State<MusicPLayer> {
               style: GoogleFonts.montserrat(
                   fontSize: 20, color: Colors.black54, letterSpacing: 0.7),
             ),
+            const SizedBox(
+              height: 20,
+            ),
             SliderTheme(
               data: const SliderThemeData(
                   trackHeight: 2,
@@ -149,6 +152,9 @@ class _MusicPLayerState extends State<MusicPLayer> {
                   },
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
