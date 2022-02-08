@@ -9,13 +9,29 @@ class SocialMediaHandle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Link(
             uri: Uri.parse('https://www.linkedin.com/in/ayush-santri/'),
             builder: (context, followLink) {
               return IconButton(
+                  iconSize: 25,
                   onPressed: followLink,
-                  icon: const Icon(FontAwesomeIcons.linkedin));
+                  icon: Icon(
+                    FontAwesomeIcons.linkedin,
+                    color: Colors.blue[700],
+                  ));
+            }),
+        Link(
+            uri: Uri.parse('https://github.com/AyushSantri'),
+            builder: (context, followLink) {
+              return IconButton(
+                  iconSize: 25,
+                  onPressed: followLink,
+                  icon: const Icon(
+                    FontAwesomeIcons.githubSquare,
+                    color: Colors.black,
+                  ));
             })
       ],
     );

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/entities/songs_data.dart';
+import 'package:musical_app/widgets/social_media_handles.dart';
 
 class MusicPLayer extends StatefulWidget {
   final SongDetail songDetail;
@@ -211,6 +212,10 @@ class _MusicPLayerState extends State<MusicPLayer> {
               style:
                   GoogleFonts.montserrat(color: Colors.black54, fontSize: 20),
             ),
+            const SizedBox(
+              height: 18,
+            ),
+            const SocialMediaHandle(),
           ],
         ),
       ),
