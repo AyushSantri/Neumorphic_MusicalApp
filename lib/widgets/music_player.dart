@@ -49,7 +49,17 @@ class MusicPLayer extends StatelessWidget {
                         image: NetworkImage(
                             'https://pbs.twimg.com/profile_images/1431129444362579971/jGrgSKDD_400x400.jpg'))),
               ),
-            )
+            ),
+            Text(
+              'Arijit Singh',
+              style:
+                  GoogleFonts.montserrat(fontSize: 25, color: Colors.black87),
+            ),
+            Text(
+              'Dildara',
+              style:
+                  GoogleFonts.montserrat(fontSize: 20, color: Colors.black54),
+            ),
           ],
         ),
       ),
