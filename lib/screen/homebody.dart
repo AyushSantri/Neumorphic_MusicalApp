@@ -22,7 +22,6 @@ class _HomeBodyState extends State<HomeBody> {
     loadData();
   }
 
-  List<SongDetail> songs = [];
   loadData() async {
     await Future.delayed(const Duration(seconds: 2));
     var data = await rootBundle.loadString('files/songlist.json');
@@ -34,7 +33,6 @@ class _HomeBodyState extends State<HomeBody> {
         .map<SongDetail>((item) => SongDetail.fromMap(item))
         .toList();
 
-    print(songs.length);
     setState(() {});
   }
 
@@ -86,7 +84,7 @@ class _HomeBodyState extends State<HomeBody> {
           const SizedBox(
             height: 20,
           ),
-          PlaylistContainer(),
+          const PlaylistContainer(),
           const SizedBox(
             height: 25,
           ),

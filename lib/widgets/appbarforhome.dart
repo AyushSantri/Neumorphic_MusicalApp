@@ -1,14 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class appBarForHome extends StatefulWidget {
-  const appBarForHome({Key? key}) : super(key: key);
+class AppBarForHome extends StatefulWidget {
+  const AppBarForHome({Key? key}) : super(key: key);
 
   @override
-  _appBarForHomeState createState() => _appBarForHomeState();
+  _AppBarForHomeState createState() => _AppBarForHomeState();
 }
 
-class _appBarForHomeState extends State<appBarForHome> {
+class _AppBarForHomeState extends State<AppBarForHome> {
   BoxDecoration decorationForNeumorphic() {
     return BoxDecoration(
         color: const Color.fromRGBO(227, 225, 225, 0.6),
