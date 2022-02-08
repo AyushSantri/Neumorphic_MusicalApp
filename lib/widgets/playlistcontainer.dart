@@ -1,7 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
 import 'package:musical_app/widgets/add_your_song.dart';
-import 'package:musical_app/widgets/neumorphic_playlist_container.dart';
 
 class PlaylistContainer extends StatefulWidget {
   const PlaylistContainer({Key? key}) : super(key: key);
@@ -13,7 +12,6 @@ class PlaylistContainer extends StatefulWidget {
 class _PlaylistContainerState extends State<PlaylistContainer> {
   List<Widget> playlists = [
     const AddYourSong(),
-    const NeumorphicPlaylistContainer(playlistName: 'Hip-Hop')
   ];
 
   @override
