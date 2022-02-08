@@ -136,13 +136,6 @@ class _MusicPLayerState extends State<MusicPLayer> {
                 },
               ),
             ),
-            TextButton(
-                onPressed: () {
-                  setState(() {
-                    playMusic();
-                  });
-                },
-                child: Text('PLay'))
           ],
         ),
       ),
