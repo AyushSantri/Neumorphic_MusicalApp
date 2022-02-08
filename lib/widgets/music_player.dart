@@ -202,7 +202,15 @@ class _MusicPLayerState extends State<MusicPLayer> {
                   ),
                 ),
               ],
-            )
+            ),
+            const SizedBox(
+              height: 60,
+            ),
+            Text(
+              'Made with ♥ by Ayush Santri',
+              style:
+                  GoogleFonts.montserrat(color: Colors.black54, fontSize: 20),
+            ),
           ],
         ),
       ),
