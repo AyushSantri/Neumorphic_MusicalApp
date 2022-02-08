@@ -1,9 +1,15 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:musical_app/entities/songs_data.dart';
 
 class MusicPLayer extends StatelessWidget {
-  const MusicPLayer({Key? key}) : super(key: key);
+  final SongDetail songDetail;
+  final AudioPlayer audioPlayer;
+  const MusicPLayer(
+      {Key? key, required this.songDetail, required this.audioPlayer})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

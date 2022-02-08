@@ -38,7 +38,12 @@ class _SongTileState extends State<SongTile> {
     return ListTile(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MusicPLayer()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => MusicPLayer(
+                      audioPlayer: audioPlayer,
+                      songDetail: widget.songDetail,
+                    )));
       },
       title: Text(
         widget.songDetail.title,
