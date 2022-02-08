@@ -1,5 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/entities/songs_data.dart';
 
@@ -17,7 +19,7 @@ class MusicPLayer extends StatefulWidget {
 class _MusicPLayerState extends State<MusicPLayer> {
   Duration _duration = const Duration();
   Duration _position = const Duration();
-  PlayerState _playerState = PlayerState.PAUSED;
+  PlayerState _playerState = PlayerState.PLAYING;
   late AudioCache audioCache;
 
   @override
@@ -44,6 +46,8 @@ class _MusicPLayerState extends State<MusicPLayer> {
         });
       });
     });
+
+    playMusic();
   }
 
   @override
@@ -143,6 +147,53 @@ class _MusicPLayerState extends State<MusicPLayer> {
                 },
               ),
             ),
+            Row(
+              children: [
+                AnimatedContainer(
+                  height: 40,
+                  width: 40,
+                  padding: const EdgeInsets.only(left: 2.1, bottom: 1.4),
+                  decoration: _playerState == PlayerState.PAUSED
+                      ? BoxDecoration(
+                          color: const Color.fromRGBO(227, 225, 225, 0.6),
+                          borderRadius: BorderRadius.circular(20),
+                        )
+                      : BoxDecoration(
+                          color: const Color.fromRGBO(227, 225, 225, 0.6),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.white,
+                                  offset: Offset(-4.0, -3.0),
+                                  blurRadius: 3.0,
+                                  spreadRadius: 0.8),
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  offset: Offset(3.0, 3.0),
+                                  blurRadius: 3.0,
+                                  spreadRadius: 0.0)
+                            ]),
+                  duration: const Duration(milliseconds: 800),
+                  curve: Curves.easeInOut,
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _playerState == PlayerState.PLAYING
+                            ? pauseMusic()
+                            : playMusic();
+                      });
+                    },
+                    icon: Icon(
+                      _playerState == PlayerState.PAUSED
+                          ? CupertinoIcons.play_fill
+                          : CupertinoIcons.pause_fill,
+                      color: Colors.red,
+                      size: 17,
+                    ),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
