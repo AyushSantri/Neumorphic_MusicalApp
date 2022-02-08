@@ -1,5 +1,4 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:audioplayers/audioplayers_api.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -241,6 +240,14 @@ class _MusicPLayerState extends State<MusicPLayer> {
                                   .setReleaseMode(ReleaseMode.LOOP)
                               : widget.audioPlayer
                                   .setReleaseMode(ReleaseMode.RELEASE);
+
+                          _isLoop
+                              ? ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text("Looping Started")))
+                              : ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text("Looping Ended")));
                         });
                       });
                     },
