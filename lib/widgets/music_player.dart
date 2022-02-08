@@ -16,8 +16,20 @@ class MusicPLayer extends StatefulWidget {
 }
 
 class _MusicPLayerState extends State<MusicPLayer> {
-  final Duration _duration = Duration();
-  final Duration _position = Duration();
+  Duration _duration = Duration();
+  Duration _position = Duration();
+
+  @override
+  void initState() {
+    super.initState();
+
+    widget.audioPlayer.onDurationChanged.listen((Duration d) {
+      setState(() {
+        _duration = d;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
