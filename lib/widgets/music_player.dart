@@ -12,6 +12,9 @@ class MusicPLayer extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            const SizedBox(
+              height: 15,
+            ),
             Center(
               child: Text('Listen Now',
                   style: GoogleFonts.montserrat(
