@@ -27,13 +27,13 @@ class _MusicPLayerState extends State<MusicPLayer> {
     audioCache =
         AudioCache(prefix: 'asset/audio/', fixedPlayer: widget.audioPlayer);
 
-    widget.audioPlayer.onDurationChanged.listen((d) {
+    widget.audioPlayer.onDurationChanged.listen((Duration d) {
       setState(() {
         _duration = d;
       });
     });
 
-    widget.audioPlayer.onAudioPositionChanged.listen((p) {
+    widget.audioPlayer.onAudioPositionChanged.listen((Duration p) {
       setState(() {
         _position = p;
       });
