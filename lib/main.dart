@@ -6,7 +6,12 @@ import 'package:musical_app/screen/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: 'apiKey',
+          appId: 'appId',
+          messagingSenderId: 'messagingSenderId',
+          projectId: 'projectId'));
   runApp(const MyApp());
 }
 
