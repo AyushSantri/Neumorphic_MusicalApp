@@ -188,16 +188,17 @@ class _AuthScreenState extends State<AuthScreen> {
                         height: 53,
                         decoration: BoxDecoration(
                             color: Colors.grey[300],
-                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(30)),
                             boxShadow: [
-                              BoxShadow(
+                              const BoxShadow(
                                   color: Colors.white,
                                   offset: Offset(-4.0, -4.0),
                                   blurRadius: 5.0,
                                   spreadRadius: 2.0),
                               BoxShadow(
                                   color: Colors.grey[400]!,
-                                  offset: Offset(4.0, 4.0),
+                                  offset: const Offset(4.0, 4.0),
                                   blurRadius: 5.0,
                                   spreadRadius: 2.0)
                             ]),
