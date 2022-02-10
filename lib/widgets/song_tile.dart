@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/entities/songs_data.dart';
-import 'package:musical_app/widgets/music_player.dart';
+import 'package:musical_app/screen/music_player.dart';
 
 class SongTile extends StatefulWidget {
   const SongTile({Key? key, required this.songDetail}) : super(key: key);
