@@ -11,8 +11,8 @@ class UploadYourSong extends StatefulWidget {
 
 class _UploadYourSongState extends State<UploadYourSong> {
   final _formkey = GlobalKey<FormState>();
-  var _name = ' ';
-  var _instaUrl = ' ';
+  var name = ' ';
+  var instaUrl = ' ';
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
                       return null;
                     },
                     onSaved: (value) {
-                      _name = value!;
+                      name = value!;
                     },
                   ),
                 ),
@@ -72,8 +72,34 @@ class _UploadYourSongState extends State<UploadYourSong> {
                       return null;
                     },
                     onSaved: (value) {
-                      _instaUrl = value!;
+                      instaUrl = value!;
                     },
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  decoration: BoxDecoration(
+                      color: Colors.red[500],
+                      borderRadius: BorderRadius.circular(20)),
+                  child: TextButton(
+                    onPressed: () async {
+                      final result = await FilePicker.platform.pickFiles();
+
+                      if (result == null) return;
+
+                      var path = result.files.single.path;
+                    },
+                    child: Text(
+                      'Add Song',
+                      style: GoogleFonts.montserrat(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ),
               ],
