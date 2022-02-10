@@ -13,6 +13,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
   final _formkey = GlobalKey<FormState>();
   var name = ' ';
   var instaUrl = ' ';
+  PlatformFile? _platformFile;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
                     key: const ValueKey('InstaID URL'),
                     style: const TextStyle(color: Colors.grey),
                     decoration: InputDecoration(
-                        labelText: "Insta URL",
+                        labelText: "InstaID URL",
                         labelStyle: GoogleFonts.montserrat()),
                     validator: (value) {
                       if (value?.isEmpty == true ||
@@ -77,24 +78,65 @@ class _UploadYourSongState extends State<UploadYourSong> {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Container(
                   height: 50,
                   width: MediaQuery.of(context).size.width / 1.5,
                   decoration: BoxDecoration(
-                      color: Colors.red[500],
+                      color: Colors.red[700],
                       borderRadius: BorderRadius.circular(20)),
                   child: TextButton(
                     onPressed: () async {
-                      final result = await FilePicker.platform.pickFiles();
+                      FilePickerResult? result = await FilePicker.platform
+                          .pickFiles(type: FileType.audio);
 
                       if (result == null) return;
 
-                      var path = result.files.single.path;
+                      setState(() {
+                        var path = result.files.first;
+
+                        _platformFile = path;
+                      });
                     },
                     child: Text(
                       'Add Song',
+                      style: GoogleFonts.montserrat(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                _platformFile != null
+                    ? Text(
+                        _platformFile!.name,
+                        style: GoogleFonts.montserrat(fontSize: 11),
+                      )
+                    : Text(
+                        'Add Your Song',
+                        style: GoogleFonts.montserrat(fontSize: 11),
+                      ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  decoration: BoxDecoration(
+                      color: Colors.red[700],
+                      borderRadius: BorderRadius.circular(20)),
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        SubmitSong();
+                      });
+                    },
+                    child: Text(
+                      'Submit Song',
                       style: GoogleFonts.montserrat(
                           fontSize: 18,
                           color: Colors.white,
