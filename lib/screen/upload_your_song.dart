@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +16,13 @@ class _UploadYourSongState extends State<UploadYourSong> {
   var instaUrl = ' ';
   PlatformFile? _platformFile;
 
-  submitSong() {}
+  submitSong() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    User user = auth.currentUser!;
+
+    String id = user.uid;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
