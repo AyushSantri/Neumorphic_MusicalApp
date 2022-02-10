@@ -15,6 +15,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
   var instaUrl = ' ';
   PlatformFile? _platformFile;
 
+  submitSong() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,7 +133,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
                   child: TextButton(
                     onPressed: () {
                       setState(() {
-                        SubmitSong();
+                        submitSong();
                       });
                     },
                     child: Text(
