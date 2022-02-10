@@ -12,7 +12,7 @@ class UploadYourSong extends StatefulWidget {
 class _UploadYourSongState extends State<UploadYourSong> {
   final _formkey = GlobalKey<FormState>();
   var _name = ' ';
-  var _instUrl = ' ';
+  var _instaUrl = ' ';
 
   @override
   Widget build(BuildContext context) {
@@ -29,30 +29,55 @@ class _UploadYourSongState extends State<UploadYourSong> {
       ),
       body: Center(
         child: Form(
+            key: _formkey,
             child: Column(
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 2,
-              child: TextFormField(
-                keyboardType: TextInputType.name,
-                key: const ValueKey('username'),
-                style: const TextStyle(color: Colors.grey),
-                decoration: InputDecoration(
-                    labelText: "username",
-                    labelStyle: GoogleFonts.montserrat()),
-                validator: (value) {
-                  if (value?.isEmpty == true) {
-                    return "Incorrect name";
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  _name = value!;
-                },
-              ),
-            ),
-          ],
-        )),
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  child: TextFormField(
+                    keyboardType: TextInputType.name,
+                    key: const ValueKey('username'),
+                    style: const TextStyle(color: Colors.grey),
+                    decoration: InputDecoration(
+                        labelText: "username",
+                        labelStyle: GoogleFonts.montserrat()),
+                    validator: (value) {
+                      if (value?.isEmpty == true) {
+                        return "Incorrect name";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      _name = value!;
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  child: TextFormField(
+                    keyboardType: TextInputType.name,
+                    key: const ValueKey('InstaID URL'),
+                    style: const TextStyle(color: Colors.grey),
+                    decoration: InputDecoration(
+                        labelText: "Insta URL",
+                        labelStyle: GoogleFonts.montserrat()),
+                    validator: (value) {
+                      if (value?.isEmpty == true ||
+                          !Uri.parse(value!).isAbsolute) {
+                        return "Incorrect URL";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      _instaUrl = value!;
+                    },
+                  ),
+                ),
+              ],
+            )),
       ),
     );
   }
