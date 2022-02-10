@@ -10,6 +10,10 @@ class UploadYourSong extends StatefulWidget {
 }
 
 class _UploadYourSongState extends State<UploadYourSong> {
+  final _formkey = GlobalKey<FormState>();
+  var _name = ' ';
+  var _instUrl = ' ';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +46,9 @@ class _UploadYourSongState extends State<UploadYourSong> {
                   }
                   return null;
                 },
-                onSaved: (value) {},
+                onSaved: (value) {
+                  _name = value!;
+                },
               ),
             ),
           ],
