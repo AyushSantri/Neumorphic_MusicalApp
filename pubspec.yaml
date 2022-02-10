@@ -43,6 +43,7 @@ dependencies:
   url_launcher: ^6.0.18
   font_awesome_flutter: ^9.2.0
   file_picker: ^4.3.3
+  firebase_storage: ^10.2.7
 
 dev_dependencies:
   flutter_test:
