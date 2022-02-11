@@ -1,4 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,14 +15,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
   final _formkey = GlobalKey<FormState>();
   var name = ' ';
   var instaUrl = ' ';
-  PlatformFile? _platformFile;
-
-  submitSong() async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    User user = auth.currentUser!;
-
-    String id = user.uid;
-  }
+  File? _file;
 
   @override
   Widget build(BuildContext context) {
@@ -103,8 +97,6 @@ class _UploadYourSongState extends State<UploadYourSong> {
 
                       setState(() {
                         var path = result.files.first;
-
-                        _platformFile = path;
                       });
                     },
                     child: Text(
@@ -119,18 +111,6 @@ class _UploadYourSongState extends State<UploadYourSong> {
                 const SizedBox(
                   height: 10,
                 ),
-                _platformFile != null
-                    ? Text(
-                        _platformFile!.name,
-                        style: GoogleFonts.montserrat(fontSize: 11),
-                      )
-                    : Text(
-                        'Add Your Song',
-                        style: GoogleFonts.montserrat(fontSize: 11),
-                      ),
-                const SizedBox(
-                  height: 30,
-                ),
                 Container(
                   height: 50,
                   width: MediaQuery.of(context).size.width / 1.5,
@@ -139,9 +119,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
                       borderRadius: BorderRadius.circular(20)),
                   child: TextButton(
                     onPressed: () {
-                      setState(() {
-                        submitSong();
-                      });
+                      setState(() {});
                     },
                     child: Text(
                       'Submit Song',
