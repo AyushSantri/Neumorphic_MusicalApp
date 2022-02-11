@@ -96,7 +96,8 @@ class _UploadYourSongState extends State<UploadYourSong> {
                       if (result == null) return;
 
                       setState(() {
-                        var path = result.files.first;
+                        var path = result.files.single.path;
+                        _file = File(path!);
                       });
                     },
                     child: Text(
