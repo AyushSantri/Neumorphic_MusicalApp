@@ -16,7 +16,6 @@ class UploadYourSong extends StatefulWidget {
 class _UploadYourSongState extends State<UploadYourSong> {
   final _formkey = GlobalKey<FormState>();
   var name = ' ';
-  var instaUrl = ' ';
   File? _file;
   FilePickerResult? result;
 
@@ -75,30 +74,6 @@ class _UploadYourSongState extends State<UploadYourSong> {
                     },
                     onSaved: (value) {
                       name = value!;
-                    },
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 1.5,
-                  child: TextFormField(
-                    keyboardType: TextInputType.name,
-                    key: const ValueKey('InstaID URL'),
-                    style: const TextStyle(color: Colors.grey),
-                    decoration: InputDecoration(
-                        labelText: "InstaID URL",
-                        labelStyle: GoogleFonts.montserrat()),
-                    validator: (value) {
-                      if (value?.isEmpty == true ||
-                          !Uri.parse(value!).isAbsolute) {
-                        return "Incorrect URL";
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      instaUrl = value!;
                     },
                   ),
                 ),
