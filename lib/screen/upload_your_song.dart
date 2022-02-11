@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +19,26 @@ class _UploadYourSongState extends State<UploadYourSong> {
   var instaUrl = ' ';
   File? _file;
   FilePickerResult? result;
+
+  addToFireStore() {
+    try {
+      FirebaseStorage.instance
+          .ref("files/${result!.files.single.name}")
+          .putFile(_file!);
+    } on FirebaseException catch (e) {
+      return e.toString();
+    }
+  }
+
+  submitFile() {
+    final validity = _formkey.currentState?.validate();
+
+    if (validity == true) {
+      _formkey.currentState!.save();
+
+      addToFireStore();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +153,9 @@ class _UploadYourSongState extends State<UploadYourSong> {
                       borderRadius: BorderRadius.circular(20)),
                   child: TextButton(
                     onPressed: () {
-                      setState(() {});
+                      setState(() {
+                        submitFile();
+                      });
                     },
                     child: Text(
                       'Submit Song',
