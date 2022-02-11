@@ -78,7 +78,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 25,
                 ),
                 Container(
                   height: 50,
