@@ -16,6 +16,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
   var name = ' ';
   var instaUrl = ' ';
   File? _file;
+  FilePickerResult? result;
 
   @override
   Widget build(BuildContext context) {
@@ -90,13 +91,13 @@ class _UploadYourSongState extends State<UploadYourSong> {
                       borderRadius: BorderRadius.circular(20)),
                   child: TextButton(
                     onPressed: () async {
-                      FilePickerResult? result = await FilePicker.platform
+                      result = await FilePicker.platform
                           .pickFiles(type: FileType.audio);
 
                       if (result == null) return;
 
                       setState(() {
-                        var path = result.files.single.path;
+                        var path = result!.files.single.path;
                         _file = File(path!);
                       });
                     },
@@ -111,6 +112,16 @@ class _UploadYourSongState extends State<UploadYourSong> {
                 ),
                 const SizedBox(
                   height: 10,
+                ),
+                result != null
+                    ? Text(
+                        result!.files.single.name,
+                        style: GoogleFonts.montserrat(fontSize: 13),
+                      )
+                    : Text("Select a File",
+                        style: GoogleFonts.montserrat(fontSize: 13)),
+                const SizedBox(
+                  height: 40,
                 ),
                 Container(
                   height: 50,
