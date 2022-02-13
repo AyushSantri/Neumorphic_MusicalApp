@@ -4,6 +4,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class UploadYourSong extends StatefulWidget {
   const UploadYourSong({Key? key}) : super(key: key);
@@ -122,8 +123,26 @@ class _UploadYourSongState extends State<UploadYourSong> {
                         result!.files.single.name,
                         style: GoogleFonts.montserrat(fontSize: 13),
                       )
-                    : Text("Select a File",
-                        style: GoogleFonts.montserrat(fontSize: 13)),
+                    : Text(
+                        "Select a File",
+                        style: GoogleFonts.montserrat(fontSize: 13),
+                      ),
+                const SizedBox(
+                  height: 15,
+                ),
+                CircularStepProgressIndicator(
+                  totalSteps: 100,
+                  currentStep:
+                      _progress != null ? (_progress! * 100).floor() : 0,
+                  stepSize: 8,
+                  selectedColor: Colors.redAccent,
+                  unselectedColor: Colors.grey[200],
+                  padding: 0,
+                  width: 80,
+                  height: 80,
+                  selectedStepSize: 7,
+                  roundedCap: (_, __) => true,
+                ),
                 const SizedBox(
                   height: 40,
                 ),
