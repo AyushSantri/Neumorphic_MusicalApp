@@ -29,7 +29,6 @@ class _UploadYourSongState extends State<UploadYourSong> {
         setState(() {
           _progress =
               event.bytesTransferred.toDouble() / event.totalBytes.toDouble();
-          print(_progress);
         });
       });
     } on FirebaseException catch (e) {
