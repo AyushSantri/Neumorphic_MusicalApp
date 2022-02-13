@@ -17,6 +17,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
   var name = ' ';
   File? _file;
   FilePickerResult? result;
+  double? _progress;
 
   addToFireStore() {
     try {
