@@ -30,6 +30,10 @@ class _UploadYourSongState extends State<UploadYourSong> {
         setState(() {
           _progress =
               event.bytesTransferred.toDouble() / event.totalBytes.toDouble();
+          if (_progress == 1) {
+            ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('File Uploaded Successfully')));
+          }
         });
       });
     } on FirebaseException catch (e) {
