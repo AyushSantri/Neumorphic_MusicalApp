@@ -21,9 +21,17 @@ class _UploadYourSongState extends State<UploadYourSong> {
 
   addToFireStore() {
     try {
-      FirebaseStorage.instance
+      var storageUploadTask = FirebaseStorage.instance
           .ref("files/${result!.files.single.name}")
           .putFile(_file!);
+
+      storageUploadTask.snapshotEvents.listen((event) {
+        setState(() {
+          _progress =
+              event.bytesTransferred.toDouble() / event.totalBytes.toDouble();
+          print(_progress);
+        });
+      });
     } on FirebaseException catch (e) {
       return e.toString();
     }
