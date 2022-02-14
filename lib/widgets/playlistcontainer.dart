@@ -9,20 +9,12 @@ class PlaylistContainer extends StatefulWidget {
 }
 
 class _PlaylistContainerState extends State<PlaylistContainer> {
-  List<Widget> playlists = [
-    const AddYourSong(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 230,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: playlists.length,
-          itemBuilder: (context, int index) {
-            return playlists[index];
-          }),
-    );
+        height: 230,
+        child: Row(
+          children: const [AddYourSong()],
+        ));
   }
 }
