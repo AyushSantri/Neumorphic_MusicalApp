@@ -8,6 +8,9 @@ class CustomSongPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        centerTitle: true,
         title: Text('User Song'),
       ),
     );
