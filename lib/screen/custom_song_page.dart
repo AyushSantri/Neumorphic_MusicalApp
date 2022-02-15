@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomSongPage extends StatelessWidget {
   const CustomSongPage({Key? key}) : super(key: key);
@@ -11,7 +12,10 @@ class CustomSongPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         centerTitle: true,
-        title: Text('User Song'),
+        title: Text(
+          'User Song',
+          style: GoogleFonts.montserrat(fontSize: 25, color: Colors.grey[800]),
+        ),
       ),
     );
   }
