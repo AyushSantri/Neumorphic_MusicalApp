@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:musical_app/screen/custom_song_page.dart';
 
 class CustomSongPlaylist extends StatelessWidget {
   const CustomSongPlaylist({Key? key}) : super(key: key);
@@ -9,7 +10,12 @@ class CustomSongPlaylist extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CustomSongPage()));
+          },
           child: Container(
             height: 150,
             width: 150,
