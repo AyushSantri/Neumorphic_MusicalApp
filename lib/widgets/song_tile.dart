@@ -6,15 +6,17 @@ import 'package:musical_app/entities/songs_data.dart';
 import 'package:musical_app/screen/music_player.dart';
 
 class SongTile extends StatefulWidget {
-  const SongTile({Key? key, required this.songDetail}) : super(key: key);
+  const SongTile(
+      {Key? key, required this.songDetail, required this.audioPlayer})
+      : super(key: key);
   final SongDetail songDetail;
+  final AudioPlayer audioPlayer;
 
   @override
   State<SongTile> createState() => _SongTileState();
 }
 
 class _SongTileState extends State<SongTile> {
-  late AudioPlayer audioPlayer = AudioPlayer();
   late AudioCache audioCache;
   bool _isPlaying = false;
 
@@ -22,7 +24,8 @@ class _SongTileState extends State<SongTile> {
   void initState() {
     super.initState();
 
-    audioCache = AudioCache(prefix: 'asset/audio/', fixedPlayer: audioPlayer);
+    audioCache =
+        AudioCache(prefix: 'asset/audio/', fixedPlayer: widget.audioPlayer);
   }
 
   playMusic() async {
@@ -30,7 +33,7 @@ class _SongTileState extends State<SongTile> {
   }
 
   pauseMusic() async {
-    await audioPlayer.pause();
+    await widget.audioPlayer.pause();
   }
 
   @override
@@ -41,7 +44,7 @@ class _SongTileState extends State<SongTile> {
             context,
             MaterialPageRoute(
                 builder: (context) => MusicPLayer(
-                      audioPlayer: audioPlayer,
+                      audioPlayer: widget.audioPlayer,
                       songDetail: widget.songDetail,
                     )));
       },

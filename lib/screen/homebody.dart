@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,6 +37,8 @@ class _HomeBodyState extends State<HomeBody> {
     setState(() {});
   }
 
+  late AudioPlayer audioPlayer = AudioPlayer();
+
   Expanded homeList() {
     return Expanded(
       child: ListView.builder(
@@ -46,6 +49,7 @@ class _HomeBodyState extends State<HomeBody> {
             children: [
               SongTile(
                 songDetail: SongData.songData[index],
+                audioPlayer: audioPlayer,
               ),
               const Divider(
                 color: Colors.black54,
