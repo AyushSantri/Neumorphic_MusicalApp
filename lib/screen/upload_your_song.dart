@@ -24,7 +24,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
     try {
       var storageUploadTask = FirebaseStorage.instance
           .ref("files/${result!.files.single.name}")
-          .putFile(_file!);
+          .putFile(_file!, SettableMetadata(customMetadata: {'name': name}));
 
       storageUploadTask.snapshotEvents.listen((event) {
         setState(() {
