@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:musical_app/widgets/song_tile_for_custom_song_page.dart';
 
 class CustomSongPage extends StatefulWidget {
   const CustomSongPage({Key? key}) : super(key: key);
@@ -58,7 +59,10 @@ class _CustomSongPageState extends State<CustomSongPage> {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  return Text(snapshot.data![index]['url']);
+                  return SongTileForCustomSongPage(
+                      audioPlayer: audioPlayer,
+                      name: snapshot.data![index]['name'],
+                      url: snapshot.data![index]['url']);
                 },
               );
             } else {
