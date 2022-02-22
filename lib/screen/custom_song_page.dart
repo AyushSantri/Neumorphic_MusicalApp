@@ -8,7 +8,8 @@ class CustomSongPage extends StatelessWidget {
   Future<List<Map<String, dynamic>>> _loadSong() async {
     List<Map<String, dynamic>> songFile = [];
 
-    final ListResult result = await FirebaseStorage.instance.ref().list();
+    final ListResult result =
+        await FirebaseStorage.instance.ref("files").list();
     final List<Reference> allFiles = result.items;
 
     await Future.forEach<Reference>(allFiles, (file) async {
@@ -19,7 +20,6 @@ class CustomSongPage extends StatelessWidget {
         "uploaded_by": fileMeta.customMetadata?['name'],
       });
     });
-    print(songFile);
     return songFile;
   }
 
