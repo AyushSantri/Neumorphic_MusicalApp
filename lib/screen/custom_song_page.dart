@@ -1,10 +1,16 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CustomSongPage extends StatelessWidget {
+class CustomSongPage extends StatefulWidget {
   const CustomSongPage({Key? key}) : super(key: key);
 
+  @override
+  State<CustomSongPage> createState() => _CustomSongPageState();
+}
+
+class _CustomSongPageState extends State<CustomSongPage> {
   Future<List<Map<String, dynamic>>> _loadSong() async {
     List<Map<String, dynamic>> songFile = [];
 
