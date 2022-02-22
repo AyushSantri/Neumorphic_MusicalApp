@@ -44,6 +44,24 @@ class _CustomSongPageState extends State<CustomSongPage> {
           style: GoogleFonts.montserrat(fontSize: 25, color: Colors.grey[800]),
         ),
       ),
+      body: Expanded(
+        child: FutureBuilder(
+          future: _loadSong(),
+          builder:
+              (context, AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return ListView.builder(
+                itemCount: snapshot.data?.length ?? 0,
+                itemBuilder: (context, index) {
+                  return Text(snapshot.data![index]['name']);
+                },
+              );
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          },
+        ),
+      ),
     );
   }
 }
