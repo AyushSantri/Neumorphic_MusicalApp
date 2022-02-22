@@ -11,6 +11,12 @@ class CustomSongPage extends StatefulWidget {
 }
 
 class _CustomSongPageState extends State<CustomSongPage> {
+  @override
+  void initState() {
+    _loadSong();
+    super.initState();
+  }
+
   Future<List<Map<String, dynamic>>> _loadSong() async {
     List<Map<String, dynamic>> songFile = [];
 
@@ -26,7 +32,6 @@ class _CustomSongPageState extends State<CustomSongPage> {
         "uploaded_by": fileMeta.customMetadata?['name'],
       });
     });
-    print(songFile);
     return songFile;
   }
 
@@ -45,12 +50,21 @@ class _CustomSongPageState extends State<CustomSongPage> {
           style: GoogleFonts.montserrat(fontSize: 25, color: Colors.grey[800]),
         ),
       ),
-      body: ElevatedButton(
-        onPressed: () {
-          _loadSong();
-        },
-        child: Text('press'),
-      ),
+      body: FutureBuilder(
+          future: _loadSong(),
+          builder:
+              (context, AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  return Text(snapshot.data![index]['url']);
+                },
+              );
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          }),
     );
   }
 }
