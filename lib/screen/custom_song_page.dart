@@ -29,6 +29,8 @@ class _CustomSongPageState extends State<CustomSongPage> {
     return songFile;
   }
 
+  AudioPlayer audioPlayer = AudioPlayer();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
