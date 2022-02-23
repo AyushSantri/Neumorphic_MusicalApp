@@ -62,9 +62,11 @@ class _CustomSongPageState extends State<CustomSongPage> {
                   itemCount: snapshot.data?.length,
                   itemBuilder: (context, index) {
                     return SongTileForCustomSongPage(
-                        audioPlayer: audioPlayer,
-                        name: snapshot.data![index]['uploaded_by'],
-                        url: snapshot.data![index]['url']);
+                      audioPlayer: audioPlayer,
+                      name: snapshot.data![index]['uploaded_by'],
+                      url: snapshot.data![index]['url'],
+                      title: snapshot.data![index]['title'],
+                    );
                   });
             } else {
               return const Center(child: CircularProgressIndicator());

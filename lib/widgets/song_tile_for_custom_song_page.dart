@@ -6,12 +6,14 @@ class SongTileForCustomSongPage extends StatefulWidget {
       {Key? key,
       required this.audioPlayer,
       required this.name,
-      required this.url})
+      required this.url,
+      required this.title})
       : super(key: key);
 
   final AudioPlayer audioPlayer;
   final String name;
   final String url;
+  final String title;
 
   @override
   State<SongTileForCustomSongPage> createState() =>
