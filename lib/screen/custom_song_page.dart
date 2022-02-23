@@ -30,9 +30,10 @@ class _CustomSongPageState extends State<CustomSongPage> {
       final FullMetadata fileMeta = await file.getMetadata();
       songFile.add({
         "url": fileUrl,
-        "uploaded_by": fileMeta.customMetadata?['name'],
+        "uploaded_by": fileMeta.customMetadata?['name'].toString(),
       });
     });
+    print(songFile);
     return songFile;
   }
 
@@ -57,14 +58,13 @@ class _CustomSongPageState extends State<CustomSongPage> {
               (context, AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return ListView.builder(
-                itemCount: snapshot.data!.length,
-                itemBuilder: (context, index) {
-                  return SongTileForCustomSongPage(
-                      audioPlayer: audioPlayer,
-                      name: snapshot.data![index]['name'],
-                      url: snapshot.data![index]['url']);
-                },
-              );
+                  itemCount: snapshot.data?.length,
+                  itemBuilder: (context, index) {
+                    return SongTileForCustomSongPage(
+                        audioPlayer: audioPlayer,
+                        name: snapshot.data![index]['uploaded_by'],
+                        url: snapshot.data![index]['url']);
+                  });
             } else {
               return const Center(child: CircularProgressIndicator());
             }
