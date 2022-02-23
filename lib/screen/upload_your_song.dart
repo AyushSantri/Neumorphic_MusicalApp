@@ -16,6 +16,7 @@ class UploadYourSong extends StatefulWidget {
 class _UploadYourSongState extends State<UploadYourSong> {
   final _formkey = GlobalKey<FormState>();
   var name = ' ';
+  late String _title = "";
   File? _file;
   FilePickerResult? result;
   double? _progress;
@@ -24,7 +25,10 @@ class _UploadYourSongState extends State<UploadYourSong> {
     try {
       var storageUploadTask = FirebaseStorage.instance
           .ref("files/${result!.files.single.name}")
-          .putFile(_file!, SettableMetadata(customMetadata: {'name': name}));
+          .putFile(
+              _file!,
+              SettableMetadata(
+                  customMetadata: {'name': name, 'title': _title}));
 
       storageUploadTask.snapshotEvents.listen((event) {
         setState(() {
@@ -88,6 +92,29 @@ class _UploadYourSongState extends State<UploadYourSong> {
                       },
                       onSaved: (value) {
                         name = value!;
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    child: TextFormField(
+                      keyboardType: TextInputType.name,
+                      key: const ValueKey('title'),
+                      style: const TextStyle(color: Colors.grey),
+                      decoration: InputDecoration(
+                          labelText: "song title",
+                          labelStyle: GoogleFonts.montserrat()),
+                      validator: (value) {
+                        if (value?.isEmpty == true) {
+                          return "Incorrect name";
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {
+                        _title = value!;
                       },
                     ),
                   ),
