@@ -61,11 +61,20 @@ class _CustomSongPageState extends State<CustomSongPage> {
               return ListView.builder(
                   itemCount: snapshot.data?.length,
                   itemBuilder: (context, index) {
-                    return SongTileForCustomSongPage(
-                      audioPlayer: audioPlayer,
-                      name: snapshot.data![index]['uploaded_by'],
-                      url: snapshot.data![index]['url'],
-                      title: snapshot.data![index]['title'],
+                    return Column(
+                      children: [
+                        SongTileForCustomSongPage(
+                          audioPlayer: audioPlayer,
+                          name: snapshot.data![index]['uploaded_by'],
+                          url: snapshot.data![index]['url'],
+                          title: snapshot.data![index]['title'],
+                        ),
+                        const Divider(
+                          color: Colors.black54,
+                          indent: 20,
+                          endIndent: 20,
+                        ),
+                      ],
                     );
                   });
             } else {
