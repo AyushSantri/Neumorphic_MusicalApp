@@ -31,6 +31,7 @@ class _CustomSongPageState extends State<CustomSongPage> {
       songFile.add({
         "url": fileUrl,
         "uploaded_by": fileMeta.customMetadata?['name'].toString(),
+        "title": fileMeta.customMetadata?['title'].toString()
       });
     });
     print(songFile);
