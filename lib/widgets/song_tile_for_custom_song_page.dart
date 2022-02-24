@@ -26,6 +26,20 @@ class _SongTileForCustomSongPageState extends State<SongTileForCustomSongPage> {
   bool _isPlaying = false;
 
   @override
+  void initState() {
+    widget.audioPlayer.setUrl(widget.url);
+    super.initState();
+  }
+
+  playMusic() async {
+    await widget.audioPlayer.play(widget.url);
+  }
+
+  pauseMusic() async {
+    await widget.audioPlayer.pause();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {},
@@ -67,6 +81,7 @@ class _SongTileForCustomSongPageState extends State<SongTileForCustomSongPage> {
           onPressed: () {
             setState(() {
               _isPlaying = !_isPlaying;
+              _isPlaying ? playMusic() : pauseMusic();
             });
           },
           icon: Icon(
