@@ -165,19 +165,22 @@ class _UploadYourSongState extends State<UploadYourSong> {
                   const SizedBox(
                     height: 15,
                   ),
-                  CircularStepProgressIndicator(
-                    totalSteps: 100,
-                    currentStep:
-                        _progress != null ? (_progress! * 100).floor() : 0,
-                    stepSize: 8,
-                    selectedColor: Colors.redAccent,
-                    unselectedColor: Colors.grey[200],
-                    padding: 0,
-                    width: 80,
-                    height: 80,
-                    selectedStepSize: 7,
-                    roundedCap: (_, __) => true,
-                  ),
+                  _animateProgressBar
+                      ? CircularStepProgressIndicator(
+                          totalSteps: 100,
+                          currentStep: _progress != null
+                              ? (_progress! * 100).floor()
+                              : 0,
+                          stepSize: 8,
+                          selectedColor: Colors.redAccent,
+                          unselectedColor: Colors.grey[200],
+                          padding: 0,
+                          width: 80,
+                          height: 80,
+                          selectedStepSize: 7,
+                          roundedCap: (_, __) => true,
+                        )
+                      : Container(),
                   const SizedBox(
                     height: 40,
                   ),
@@ -190,7 +193,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
                     child: TextButton(
                       onPressed: () {
                         setState(() {
-                          _animateProgressBar = true;
+                          _animateProgressBar = !_animateProgressBar;
                           submitFile();
                         });
                       },
