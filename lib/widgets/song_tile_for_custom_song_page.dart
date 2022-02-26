@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:musical_app/screen/music_player_for_custom_songs.dart';
 
 class SongTileForCustomSongPage extends StatefulWidget {
   const SongTileForCustomSongPage(
@@ -42,7 +43,16 @@ class _SongTileForCustomSongPageState extends State<SongTileForCustomSongPage> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => MusicPlayerForCustomSongs(
+                    url: widget.url,
+                    title: widget.title,
+                    author: widget.name,
+                    audioPlayer: widget.audioPlayer)));
+      },
       title: Text(
         widget.title,
         style: GoogleFonts.montserrat(fontSize: 15, color: Colors.grey[850]),
