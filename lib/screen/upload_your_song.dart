@@ -55,6 +55,8 @@ class _UploadYourSongState extends State<UploadYourSong> {
     }
   }
 
+  bool _animateProgressBar = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -188,6 +190,7 @@ class _UploadYourSongState extends State<UploadYourSong> {
                     child: TextButton(
                       onPressed: () {
                         setState(() {
+                          _animateProgressBar = true;
                           submitFile();
                         });
                       },
