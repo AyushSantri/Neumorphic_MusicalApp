@@ -39,7 +39,7 @@ class CustomSongPlaylist extends StatelessWidget {
             ),
             child: Center(
               child: Icon(
-                CupertinoIcons.double_music_note,
+                CupertinoIcons.music_house_fill,
                 size: 100,
                 color: Colors.red[400],
               ),
