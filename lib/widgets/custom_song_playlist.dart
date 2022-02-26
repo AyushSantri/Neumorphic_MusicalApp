@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musical_app/screen/custom_song_page.dart';
@@ -21,24 +22,28 @@ class CustomSongPlaylist extends StatelessWidget {
             width: 150,
             margin: const EdgeInsets.only(top: 17, left: 13, right: 10),
             decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: const BorderRadius.all(Radius.circular(30)),
-                boxShadow: [
-                  const BoxShadow(
-                      color: Colors.white,
-                      offset: Offset(-4.0, -4.0),
-                      blurRadius: 5.0,
-                      spreadRadius: 3.0),
-                  BoxShadow(
-                      color: Colors.grey[400]!,
-                      offset: const Offset(4.0, 4.0),
-                      blurRadius: 5.0,
-                      spreadRadius: 3.0)
-                ],
-                image: const DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                        'https://www.incimages.com/uploaded_files/image/1920x1080/getty_967041852_2000133320009280134_404284.jpg'))),
+              color: Colors.grey[300],
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+              boxShadow: [
+                const BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-4.0, -4.0),
+                    blurRadius: 5.0,
+                    spreadRadius: 3.0),
+                BoxShadow(
+                    color: Colors.grey[400]!,
+                    offset: const Offset(4.0, 4.0),
+                    blurRadius: 5.0,
+                    spreadRadius: 3.0)
+              ],
+            ),
+            child: Center(
+              child: Icon(
+                CupertinoIcons.double_music_note,
+                size: 100,
+                color: Colors.red[400],
+              ),
+            ),
           ),
         ),
         const SizedBox(
