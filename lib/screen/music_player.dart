@@ -93,7 +93,7 @@ class _MusicPLayerState extends State<MusicPLayer> {
             ),
             Center(
               child: Container(
-                height: MediaQuery.of(context).size.height / 3.5,
+                height: MediaQuery.of(context).size.height / 3.7,
                 width: MediaQuery.of(context).size.height / 4.5,
                 decoration: BoxDecoration(
                     color: Colors.grey[100],
